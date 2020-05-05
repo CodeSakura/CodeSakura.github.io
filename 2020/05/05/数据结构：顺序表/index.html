@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="CodeSakura的博客">
 <meta property="og:description" content="代码记录数据结构的基础结构之–顺序表 包含顺序表的初始化，置空，判空，打印，插入，删除，查找，元素定位，表与表的添加。">
 <meta property="article:published_time" content="2020-05-05T11:04:51.000Z">
-<meta property="article:modified_time" content="2020-05-05T11:11:28.790Z">
+<meta property="article:modified_time" content="2020-05-05T11:14:14.590Z">
 <meta property="article:author" content="CodeSakura">
 <meta property="article:tag" content="数据结构">
 <meta property="article:tag" content="顺序表">
@@ -185,70 +185,8 @@
 <p>包含顺序表的初始化，置空，判空，打印，插入，删除，查找，元素定位，表与表的添加。</p>
 <a id="more"></a>
 
-<p>#include<iostream><br>#include<cstdio><br>#include<cmath><br>#include<cstring><br>#include<algorithm><br>#include<functional><br>#include<queue><br>using namespace std;</queue></functional></algorithm></cstring></cmath></cstdio></iostream></p>
-<p>#define OK 1<br>#define ERROR 0<br>#define TRUE 1<br>#define FALSE 0<br>#define MAXSIZE 100<br>typedef int ElemType;<br>typedef int Status;</p>
-<p>typedef struct LNode  //线性表的顺序存储结构<br>{<br>    ElemType Data[MAXSIZE];  //数组存储元素<br>    int length;  //长度<br>}SqList;</p>
-<p>Status Print(ElemType e)  //打印元素e<br>{<br>    printf(“%d “, e);<br>    return OK;<br>}</p>
-<p>Status InitList(SqList *s)  //初始化，长度为0<br>{<br>    s-&gt;length = 0;<br>    return OK;<br>}</p>
-<p>Status ListEmpty(SqList s)  //线性表若为空返回true，否在返回false<br>{<br>    if (s.length == 0)<br>    {<br>        return TRUE;<br>    }<br>    else<br>    {<br>        return FALSE;<br>    }<br>}</p>
-<p>Status ClearList(SqList *s)  //将线性表重置为空表，与初始化操作相同<br>{<br>    s-&gt;length = 0;<br>    return OK;<br>}</p>
-<p>Status ListLength(SqList s)  //返回线性表长度<br>{<br>    return s.length;<br>}</p>
-<p>Status ElemGet(SqList s,int i, ElemType *e)  //从线性表中获得元素的值<br>{<br>    if (s.length == 0 || i &lt; 1 || i &gt; s.length)  //i值有误或者线性表里没有元素<br>    {<br>        return ERROR;<br>    }<br>    *e = s.Data[i - 1];  //数组是从0开始，用i定位就需要减1<br>}</p>
-<p>Status LocateElem(SqList s, ElemType e)  //找到元素e在线性表中的位置<br>{<br>    int i;<br>    if (s.length == 0)<br>    {<br>        return FALSE;<br>    }<br>    for (i = 0; i &lt; s.length; i++)<br>    {<br>        if (s.Data[i] == e)<br>        {<br>            break;  //找到该元素后跳出循环<br>        }<br>    }<br>    if (i &gt;= s.length)<br>    {<br>        return FALSE;<br>    }<br>    return i + 1;<br>}</p>
-<p>Status InsertList(SqList *s, int i, ElemType e)  //在s中第i个位置之前插入元素e<br>{<br>    int k;<br>    if (s-&gt;length == MAXSIZE)  //满<br>    {<br>        return ERROR;<br>    }<br>    if (i&lt;1 || i&gt;s-&gt;length + 1)  //位置i有误<br>    {<br>        return ERROR;<br>    }</p>
-<pre><code>if (i &lt;= s-&gt;length)  //插入时不在表尾
-{
-    for (k = s-&gt;length - 1; k &gt;= i - 1; k--)  //将要插入位置之后的元素后移一位
-    {
-        s-&gt;Data[k + 1] = s-&gt;Data[k];
-    }
-}
-s-&gt;Data[i - 1] = e;  //元素插入并长度加1
-s-&gt;length++;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;iostream&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#include&lt;cmath&gt;</span><br><span class="line">#include&lt;cstring&gt;</span><br><span class="line">#include&lt;algorithm&gt;</span><br><span class="line">#include&lt;functional&gt; </span><br><span class="line">#include&lt;queue&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">#define OK 1</span><br><span class="line">#define ERROR 0</span><br><span class="line">#define TRUE 1</span><br><span class="line">#define FALSE 0</span><br><span class="line">#define MAXSIZE 100</span><br><span class="line">typedef int ElemType;</span><br><span class="line">typedef int Status;</span><br><span class="line"></span><br><span class="line">typedef struct LNode  &#x2F;&#x2F;线性表的顺序存储结构</span><br><span class="line">&#123;</span><br><span class="line">	ElemType Data[MAXSIZE];  &#x2F;&#x2F;数组存储元素</span><br><span class="line">	int length;  &#x2F;&#x2F;长度</span><br><span class="line">&#125;SqList;</span><br><span class="line"></span><br><span class="line">Status Print(ElemType e)  &#x2F;&#x2F;打印元素e</span><br><span class="line">&#123;</span><br><span class="line">	printf(&quot;%d &quot;, e);</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status InitList(SqList *s)  &#x2F;&#x2F;初始化，长度为0</span><br><span class="line">&#123;</span><br><span class="line">	s-&gt;length &#x3D; 0;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status ListEmpty(SqList s)  &#x2F;&#x2F;线性表若为空返回true，否在返回false</span><br><span class="line">&#123;</span><br><span class="line">	if (s.length &#x3D;&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		return TRUE;</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		return FALSE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status ClearList(SqList *s)  &#x2F;&#x2F;将线性表重置为空表，与初始化操作相同</span><br><span class="line">&#123;</span><br><span class="line">	s-&gt;length &#x3D; 0;</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status ListLength(SqList s)  &#x2F;&#x2F;返回线性表长度</span><br><span class="line">&#123;</span><br><span class="line">	return s.length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status ElemGet(SqList s,int i, ElemType *e)  &#x2F;&#x2F;从线性表中获得元素的值</span><br><span class="line">&#123;</span><br><span class="line">	if (s.length &#x3D;&#x3D; 0 || i &lt; 1 || i &gt; s.length)  &#x2F;&#x2F;i值有误或者线性表里没有元素</span><br><span class="line">	&#123;</span><br><span class="line">		return ERROR;</span><br><span class="line">	&#125;</span><br><span class="line">	*e &#x3D; s.Data[i - 1];  &#x2F;&#x2F;数组是从0开始，用i定位就需要减1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status LocateElem(SqList s, ElemType e)  &#x2F;&#x2F;找到元素e在线性表中的位置</span><br><span class="line">&#123;</span><br><span class="line">	int i;</span><br><span class="line">	if (s.length &#x3D;&#x3D; 0)</span><br><span class="line">	&#123;</span><br><span class="line">		return FALSE;</span><br><span class="line">	&#125;</span><br><span class="line">	for (i &#x3D; 0; i &lt; s.length; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		if (s.Data[i] &#x3D;&#x3D; e)</span><br><span class="line">		&#123;</span><br><span class="line">			break;  &#x2F;&#x2F;找到该元素后跳出循环</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	if (i &gt;&#x3D; s.length)</span><br><span class="line">	&#123;</span><br><span class="line">		return FALSE;</span><br><span class="line">	&#125;</span><br><span class="line">	return i + 1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status InsertList(SqList *s, int i, ElemType e)  &#x2F;&#x2F;在s中第i个位置之前插入元素e</span><br><span class="line">&#123;</span><br><span class="line">	int k;</span><br><span class="line">	if (s-&gt;length &#x3D;&#x3D; MAXSIZE)  &#x2F;&#x2F;满</span><br><span class="line">	&#123;</span><br><span class="line">		return ERROR;</span><br><span class="line">	&#125;</span><br><span class="line">	if (i&lt;1 || i&gt;s-&gt;length + 1)  &#x2F;&#x2F;位置i有误</span><br><span class="line">	&#123;</span><br><span class="line">		return ERROR;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">if (i &lt;&#x3D; s-&gt;length)  &#x2F;&#x2F;插入时不在表尾</span><br><span class="line">&#123;</span><br><span class="line">	for (k &#x3D; s-&gt;length - 1; k &gt;&#x3D; i - 1; k--)  &#x2F;&#x2F;将要插入位置之后的元素后移一位</span><br><span class="line">	&#123;</span><br><span class="line">		s-&gt;Data[k + 1] &#x3D; s-&gt;Data[k];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">s-&gt;Data[i - 1] &#x3D; e;  &#x2F;&#x2F;元素插入并长度加1</span><br><span class="line">s-&gt;length++;</span><br><span class="line"></span><br><span class="line">return OK;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status DeleteList(SqList *s, int i, ElemType *e)</span><br><span class="line">&#123;</span><br><span class="line">	int k;</span><br><span class="line">	if (s-&gt;length &#x3D;&#x3D; 0)  &#x2F;&#x2F;空</span><br><span class="line">	&#123;</span><br><span class="line">		return ERROR;</span><br><span class="line">	&#125;</span><br><span class="line">	if (i&lt;1 || i&gt;s-&gt;length )  &#x2F;&#x2F;位置i有误</span><br><span class="line">	&#123;</span><br><span class="line">		return ERROR;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	*e &#x3D; s-&gt;Data[i - 1];  &#x2F;&#x2F;将被删除的元素返回给e</span><br><span class="line">	if (i &lt; s-&gt;length)</span><br><span class="line">	&#123;</span><br><span class="line">		for (k &#x3D; i; k &lt; s-&gt;length; k++)</span><br><span class="line">		&#123;</span><br><span class="line">			s-&gt;Data[k - 1] &#x3D; s-&gt;Data[k];  &#x2F;&#x2F;将删除位置后面的元素前移i个单位</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	s-&gt;length--;</span><br><span class="line">	return OK;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Status TraverList(SqList s)  &#x2F;&#x2F;遍历所有线性表中的元素</span><br><span class="line">&#123;</span><br><span class="line">	int i;</span><br><span class="line">	for (i &#x3D; 0; i &lt; s.length; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		Print(s.Data[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;\n&quot;);</span><br><span class="line">	return OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void unionList(SqList *sa, SqList sb)  &#x2F;&#x2F;将所有的在线性表sb但不在sa中的元素插入sa</span><br><span class="line">&#123;</span><br><span class="line">	int sa_len, sb_len, i;</span><br><span class="line">	ElemType e;</span><br><span class="line">	sa_len &#x3D; ListLength(*sa);</span><br><span class="line">	sb_len &#x3D; ListLength(sb);</span><br><span class="line">	for (i &#x3D; 1; i &lt; sa_len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		ElemGet(sb, i, &amp;e);  &#x2F;&#x2F;sb中第i个元素赋值于e</span><br><span class="line">		if (!LocateElem(*sa, e))  &#x2F;&#x2F;如果线性表sa中不存在与e相同的元素</span><br><span class="line">		&#123;</span><br><span class="line">			InsertList(sa, ++sa_len, e);  &#x2F;&#x2F;将sb中有而sa中无的元素队尾插入sa</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	SqList S;</span><br><span class="line">	ElemType e1,e2;</span><br><span class="line"></span><br><span class="line">	InitList(&amp;S);  &#x2F;&#x2F;初始化,将1到10插入线性表</span><br><span class="line">	for (int i &#x3D; 1; i &lt;&#x3D; 10; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		InsertList(&amp;S, i, i);</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;初始的线性表元素为：\n&quot;);</span><br><span class="line">	TraverList(S);</span><br><span class="line">	</span><br><span class="line">	InsertList(&amp;S, 3, 666);  &#x2F;&#x2F;在第三个元素位置插入666</span><br><span class="line">	printf(&quot;在第三个元素位置插入666后\n&quot;);</span><br><span class="line">	TraverList(S);</span><br><span class="line">	</span><br><span class="line">	DeleteList(&amp;S, 8, &amp;e1);  &#x2F;&#x2F;将第8个元素删除</span><br><span class="line">	printf(&quot;将第8个元素删除后,删除的元素e为&#x3D;%d\n&quot;,e1);</span><br><span class="line">	TraverList(S);</span><br><span class="line">	</span><br><span class="line">	printf(&quot;寻找元素为65是否在在线性表内，当前线性表为：\n&quot;);</span><br><span class="line">	TraverList(S);</span><br><span class="line">	e2 &#x3D; LocateElem(S, 65);</span><br><span class="line">	if (e2 &#x3D;&#x3D; 65)</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;%d\n&quot;, e2);</span><br><span class="line">	&#125;</span><br><span class="line">	else</span><br><span class="line">	&#123;</span><br><span class="line">		printf(&quot;没有该元素\n&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	return 0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-return OK;</code></pre><p>}</p>
-<p>Status DeleteList(SqList *s, int i, ElemType *e)<br>{<br>    int k;<br>    if (s-&gt;length == 0)  //空<br>    {<br>        return ERROR;<br>    }<br>    if (i&lt;1 || i&gt;s-&gt;length )  //位置i有误<br>    {<br>        return ERROR;<br>    }</p>
-<pre><code>*e = s-&gt;Data[i - 1];  //将被删除的元素返回给e
-if (i &lt; s-&gt;length)
-{
-    for (k = i; k &lt; s-&gt;length; k++)
-    {
-        s-&gt;Data[k - 1] = s-&gt;Data[k];  //将删除位置后面的元素前移i个单位
-    }
-}
-s-&gt;length--;
-return OK;</code></pre><p>}</p>
-<p>Status TraverList(SqList s)  //遍历所有线性表中的元素<br>{<br>    int i;<br>    for (i = 0; i &lt; s.length; i++)<br>    {<br>        Print(s.Data[i]);<br>    }<br>    printf(“\n”);<br>    return OK;<br>}</p>
-<p>void unionList(SqList <em>sa, SqList sb)  //将所有的在线性表sb但不在sa中的元素插入sa<br>{<br>    int sa_len, sb_len, i;<br>    ElemType e;<br>    sa_len = ListLength(</em>sa);<br>    sb_len = ListLength(sb);<br>    for (i = 1; i &lt; sa_len; i++)<br>    {<br>        ElemGet(sb, i, &amp;e);  //sb中第i个元素赋值于e<br>        if (!LocateElem(*sa, e))  //如果线性表sa中不存在与e相同的元素<br>        {<br>            InsertList(sa, ++sa_len, e);  //将sb中有而sa中无的元素队尾插入sa<br>        }<br>    }<br>}</p>
-<p>int main()<br>{<br>    SqList S;<br>    ElemType e1,e2;</p>
-<pre><code>InitList(&amp;S);  //初始化,将1到10插入线性表
-for (int i = 1; i &lt;= 10; i++)
-{
-    InsertList(&amp;S, i, i);
-}
-printf(&quot;初始的线性表元素为：\n&quot;);
-TraverList(S);
-
-InsertList(&amp;S, 3, 666);  //在第三个元素位置插入666
-printf(&quot;在第三个元素位置插入666后\n&quot;);
-TraverList(S);
-
-DeleteList(&amp;S, 8, &amp;e1);  //将第8个元素删除
-printf(&quot;将第8个元素删除后,删除的元素e为=%d\n&quot;,e1);
-TraverList(S);
-
-printf(&quot;寻找元素为65是否在在线性表内，当前线性表为：\n&quot;);
-TraverList(S);
-e2 = LocateElem(S, 65);
-if (e2 == 65)
-{
-    printf(&quot;%d\n&quot;, e2);
-}
-else
-{
-    printf(&quot;没有该元素\n&quot;);
-}
-return 0;</code></pre><p>}</p>
 
       
 
@@ -508,7 +446,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">贪心法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">数据结构</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础知识，补漏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -516,7 +470,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础知识，补漏</a>
+                <a href="javascript:void(0)" class="js-tag color4">回溯法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">算法，博弈树</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -529,26 +487,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">gitee搭载</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">回溯法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，博弈树</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">贪心法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
             
             <div class="clearfix"></div>
