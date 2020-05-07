@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 入门 | CodeSakura的博客</title>
+  <title>贪心法简单例题及其理解 | CodeSakura的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一名在校计科大学生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeSakura的博客">
-<meta property="og:url" content="http://yoursite.com/tags/%E5%85%A5%E9%97%A8/index.html">
+  <meta name="description" content="区间覆盖问题 问题描述 ：有一组数据[-2,-3,-5,3,2,0],需要用固定长度的闭区间覆盖这些点，求最少用多少个闭区间。  求解：将数据递增排序，用temp记录数轴上最左端（min）的点的值，然后将其他皆比它大的数一一进行相减，x【i】-temp，当循环到大于覆盖块长度k时的x【i】，将temp进行记录作为新的值，使用块数m+1，最终返回次数m的值。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贪心法简单例题及其理解">
+<meta property="og:url" content="http://yoursite.com/2020/05/07/%E8%B4%AA%E5%BF%83%E6%B3%95%E7%AE%80%E5%8D%95%E4%BE%8B%E9%A2%98%E5%8F%8A%E5%85%B6%E7%90%86%E8%A7%A3/index.html">
 <meta property="og:site_name" content="CodeSakura的博客">
-<meta property="og:description" content="一名在校计科大学生">
+<meta property="og:description" content="区间覆盖问题 问题描述 ：有一组数据[-2,-3,-5,3,2,0],需要用固定长度的闭区间覆盖这些点，求最少用多少个闭区间。  求解：将数据递增排序，用temp记录数轴上最左端（min）的点的值，然后将其他皆比它大的数一一进行相减，x【i】-temp，当循环到大于覆盖块长度k时的x【i】，将temp进行记录作为新的值，使用块数m+1，最终返回次数m的值。">
+<meta property="article:published_time" content="2020-05-07T08:30:41.000Z">
+<meta property="article:modified_time" content="2020-05-07T09:13:04.600Z">
 <meta property="article:author" content="CodeSakura">
-<meta property="article:tag" content="数码，装机，游戏，学习笔记，编程踩坑，安装软件踩坑">
+<meta property="article:tag" content="贪心法">
+<meta property="article:tag" content="例题">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeSakura的博客" type="application/atom+xml">
@@ -158,64 +161,200 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-贪心法简单例题及其理解" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/04/27/MarkDown%E7%BC%96%E5%86%99%E6%A0%BC%E5%BC%8F%E7%AE%80%E8%BF%B0/" class="archive-article-date">
-  	<time datetime="2020-04-27T12:52:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/04/27/MarkDown%E7%BC%96%E5%86%99%E6%A0%BC%E5%BC%8F%E7%AE%80%E8%BF%B0/">MarkDown编写格式简述</a>
+    <h1 class="article-title" itemprop="name">
+      贪心法简单例题及其理解
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/05/07/%E8%B4%AA%E5%BF%83%E6%B3%95%E7%AE%80%E5%8D%95%E4%BE%8B%E9%A2%98%E5%8F%8A%E5%85%B6%E7%90%86%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2020-05-07T08:30:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="区间覆盖问题"><a href="#区间覆盖问题" class="headerlink" title="区间覆盖问题"></a>区间覆盖问题</h3><ul>
+<li><p><em>问题描述</em> ：有一组数据[-2,-3,-5,3,2,0],需要用固定长度的闭区间覆盖这些点，求最少用多少个闭区间。</p>
+</li>
+<li><p>求解：将数据递增排序，用temp记录数轴上最左端（min）的点的值，然后将其他皆比它大的数一一进行相减，x【i】-temp，当循环到大于覆盖块长度k时的x【i】，将temp进行记录作为新的值，使用块数m+1，最终返回次数m的值。</p>
+<a id="more"></a>
+</li>
+<li><p><strong>算法证明</strong>：在x数组递增排序后，满足<strong>最优子结构性质</strong>，下面证明算法具有贪心选择性。</p>
+</li>
+<li><p>对于某个点x来说，如果x落在覆盖闭区间集T内，T的长度没有发生改变，则不再需要进一步证明。如果x不属于覆盖区间集之<strong>内</strong>，那么必定在覆盖区间<strong>之间</strong>，假设区间【s，t】，s不属于全部temp值集，那么【s，t】就会在覆盖块<strong>之间</strong>，与覆盖块之间不存在任何x中的点<strong>假设矛盾</strong>，从而证明算法正确。</p>
+</li>
+<li><p><strong>算法分析</strong>：快速排序算法时间复杂度为O(nlog2^n)，for循环的时间O(n),所以本算法时间复杂度为：O(nlog2^n)。</p>
+</li>
+<li><p>算法代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//贪心法区间覆盖问题，x[]记录每个结点的数值,n记录x数组长度,m记录所用覆盖快个数,k每个覆盖块的长度</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">qujianfugai</span><span class="params">(<span class="keyword">int</span> x[],<span class="keyword">int</span> n, <span class="keyword">int</span> m, <span class="keyword">int</span> k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	m = <span class="number">1</span>;</span><br><span class="line">	sort(x, x + n);  <span class="comment">//将x数组从小到大排序</span></span><br><span class="line">	<span class="keyword">int</span> temp = x[<span class="number">0</span>];</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (x[i] - temp &gt; k)  <span class="comment">//当x【i】数值-temp最左端的数值大于覆盖块长度，重新记录temp并m加1</span></span><br><span class="line">		&#123;</span><br><span class="line">			temp = x[i];</span><br><span class="line">			m++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> m;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x[<span class="number">5</span>] = &#123; <span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span> &#125;;</span><br><span class="line">	<span class="keyword">int</span>  n = <span class="number">5</span>, m = <span class="number">0</span>, k = <span class="number">2</span>;</span><br><span class="line">	m = qujianfugai(x, n, m, k);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; m;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>老板大气了！&gt;.&lt;<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfbfk.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wxfk.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MarkDown</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">贪心法</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">入门</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">例题</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://codesakura.gitee.io/2020/05/07/%E8%B4%AA%E5%BF%83%E6%B3%95%E7%AE%80%E5%8D%95%E4%BE%8B%E9%A2%98%E5%8F%8A%E5%85%B6%E7%90%86%E8%A7%A3/" alt="微信分享二维码">
+    </div>
+</div>
+
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构：栈的定义与基本操作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -238,9 +377,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
