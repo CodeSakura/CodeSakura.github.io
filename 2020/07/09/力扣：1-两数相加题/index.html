@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2020/5 | CodeSakura的博客</title>
+  <title>力扣：1.两数相加题 | CodeSakura的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一名在校计科大学生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeSakura的博客">
-<meta property="og:url" content="http://yoursite.com/archives/2020/05/index.html">
+  <meta name="description" content="力扣刷题：两数相加题括： 已知数组nums{1，2，7，4}，求得其中2值相加target&#x3D;8的nums的下标。 思路： 1.暴力求解法： 通过2个for循环遍历nums中能使target&#x3D;8的数。 123456789101112131415class Solution &amp;#123;     public int[] twoSum(int[] nums,int target) &amp;#123;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="力扣：1.两数相加题">
+<meta property="og:url" content="http://yoursite.com/2020/07/09/%E5%8A%9B%E6%89%A3%EF%BC%9A1-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0%E9%A2%98/index.html">
 <meta property="og:site_name" content="CodeSakura的博客">
-<meta property="og:description" content="一名在校计科大学生">
+<meta property="og:description" content="力扣刷题：两数相加题括： 已知数组nums{1，2，7，4}，求得其中2值相加target&#x3D;8的nums的下标。 思路： 1.暴力求解法： 通过2个for循环遍历nums中能使target&#x3D;8的数。 123456789101112131415class Solution &amp;#123;     public int[] twoSum(int[] nums,int target) &amp;#123;">
+<meta property="article:published_time" content="2020-07-09T05:29:52.000Z">
+<meta property="article:modified_time" content="2020-07-09T13:44:49.183Z">
 <meta property="article:author" content="CodeSakura">
-<meta property="article:tag" content="数码，装机，游戏，学习笔记，编程踩坑，安装软件踩坑">
+<meta property="article:tag" content="力扣">
+<meta property="article:tag" content="刷题">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeSakura的博客" type="application/atom+xml">
@@ -158,148 +161,203 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-力扣：1-两数相加题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      力扣：1.两数相加题
+    </h1>
+  
+
+        
+        <a href="/2020/07/09/%E5%8A%9B%E6%89%A3%EF%BC%9A1-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0%E9%A2%98/" class="archive-article-date">
+  	<time datetime="2020-07-09T05:29:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-09</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="力扣刷题：两数相加"><a href="#力扣刷题：两数相加" class="headerlink" title="力扣刷题：两数相加"></a>力扣刷题：两数相加</h3><p><strong>题括</strong>：</p>
+<p>已知数组nums{1，2，7，4}，求得其中2值相加target=8的nums的下标。</p>
+<p><strong>思路：</strong></p>
+<p>1.<em>暴力求解法</em>：</p>
+<p>通过2个for循环遍历nums中能使target=8的数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">     <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target) &#123;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length ; i++) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = i+<span class="number">1</span>; j &lt; nums.length ; j++) &#123;</span><br><span class="line">                <span class="keyword">if</span>(nums[i]+nums[j] == target) &#123;</span><br><span class="line">                    ans[<span class="number">0</span>] = i;</span><br><span class="line">                    ans[<span class="number">1</span>] = j;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>  ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.<em>两指针求解法</em></p>
+<p>利用快速排序的思想，将nums数组快速排序后，将i，j两指针分别定义nums的最小和最大值，i++，j–，直到求到target值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  * 力扣第一题：2数相加</span></span><br><span class="line"><span class="comment">  * */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target) &#123;</span><br><span class="line">       <span class="keyword">int</span> m = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> n = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">       <span class="comment">/*Copy数组保留原始nums排序的下标，便于找到目的元素后找回下标值*/</span></span><br><span class="line">       <span class="keyword">int</span>[] copy = <span class="keyword">new</span> <span class="keyword">int</span>[nums.length];</span><br><span class="line">       System.arraycopy(nums,<span class="number">0</span>,copy,<span class="number">0</span>,nums.length);</span><br><span class="line">       <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">       <span class="comment">/*利用快速排序，从2头找效率更高*/</span></span><br><span class="line">       Arrays.sort(nums);</span><br><span class="line">       <span class="keyword">for</span>(i = <span class="number">0</span>,j = nums.length-<span class="number">1</span>;i&lt;j;) &#123;</span><br><span class="line">           <span class="keyword">if</span>(nums[i]+nums[j] &lt; target) &#123;</span><br><span class="line">               i++;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span>(nums[i]+nums[j] &gt; target) &#123;</span><br><span class="line">               j--;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">else</span> <span class="keyword">if</span>(nums[i]+nums[j] == target) &#123;</span><br><span class="line">               m = nums[i];</span><br><span class="line">               n = nums[j];</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment">/*k值拿出是如果nums数组中有一样的元素，导致找该数时下标混乱*/</span></span><br><span class="line">       <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line">       <span class="keyword">for</span>(k=<span class="number">0</span>;k&lt;copy.length;k++)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">if</span>(m == copy[k]) &#123;</span><br><span class="line">               ans[<span class="number">0</span>] = k;</span><br><span class="line">               <span class="keyword">break</span>;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">int</span> o=<span class="number">0</span>;o&lt;copy.length;o++)</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">if</span>(n == copy[o] &amp;&amp; o != k) &#123;<span class="comment">/*在此体现i != k*/</span></span><br><span class="line">               ans[<span class="number">1</span>] = o;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="keyword">return</span>  ans;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.<em>Java中的HashMap求解</em>   <strong>速度最快</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[]twoSum(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target) &#123;</span><br><span class="line">    Map&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length ; i++) &#123;</span><br><span class="line">        <span class="comment">/*此处应求下标，所以键为元素值，值为下标。target-nums[i]求出Map也就是nums数组的另一半*/</span></span><br><span class="line">        <span class="keyword">if</span>(map.containsKey(target - nums[i])) &#123;  </span><br><span class="line">            <span class="comment">/*//此处返回秒啊，因为是2个值，在第一个值i确立情况下，得出另一个值target-nums[i],因i还未++直接能将2值跳出*/</span></span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;map.get(target - nums[i]),i&#125;;  </span><br><span class="line">        &#125;</span><br><span class="line">        map.put(nums[i],i);  <span class="comment">//键值对放入map中</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;-<span class="number">1</span>,-<span class="number">1</span>&#125;;  <span class="comment">//未找到元素返回-1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>老板大气了！&gt;.&lt;<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfbfk.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wxfk.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/07/%E8%B4%AA%E5%BF%83%E6%B3%95%E7%AE%80%E5%8D%95%E4%BE%8B%E9%A2%98%E5%8F%8A%E5%85%B6%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-05-07T08:30:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/07/%E8%B4%AA%E5%BF%83%E6%B3%95%E7%AE%80%E5%8D%95%E4%BE%8B%E9%A2%98%E5%8F%8A%E5%85%B6%E7%90%86%E8%A7%A3/">贪心法简单例题及其理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">贪心法</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">力扣</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">例题</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷题</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/09/%E5%8A%9B%E6%89%A3%EF%BC%9A1-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0%E9%A2%98/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-05-05T13:37:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/07/09/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%98%A0%E5%B0%84%EF%BC%88map%EF%BC%89%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          读书笔记：映射（map）的基本操作
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/07/07/Java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Java后端开发成神之路</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">数据结构：栈的定义与基本操作</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E9%A1%BA%E5%BA%8F%E8%A1%A8/" class="archive-article-date">
-  	<time datetime="2020-05-05T11:04:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E9%A1%BA%E5%BA%8F%E8%A1%A8/">数据结构：顺序表</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">顺序表</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -322,8 +380,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
