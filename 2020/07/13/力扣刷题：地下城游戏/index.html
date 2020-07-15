@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 栈 | CodeSakura的博客</title>
+  <title>力扣刷题：地下城游戏 | CodeSakura的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一名在校计科大学生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeSakura的博客">
-<meta property="og:url" content="http://yoursite.com/tags/%E6%A0%88/index.html">
+  <meta name="description" content="力扣：地下城游戏题意：已知一矩形地下城n*m，骑士从左上到右下去拯救公主。每个格子对应一个迷室，骑士通过时会扣除生命值或者增加生命值，求到拯救公主，骑士的最小初始生命值应为多少？ 编写一个函数来计算确保骑士能够拯救到公主所需的最低初始健康点数。 例如，考虑到如下布局的地下城，如果骑士遵循最佳路径 右 -&gt; 右 -&gt; 下 -&gt; 下，则骑士的初始健康点数至少为 7。 -2 (K)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="力扣刷题：地下城游戏">
+<meta property="og:url" content="http://yoursite.com/2020/07/13/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F/index.html">
 <meta property="og:site_name" content="CodeSakura的博客">
-<meta property="og:description" content="一名在校计科大学生">
+<meta property="og:description" content="力扣：地下城游戏题意：已知一矩形地下城n*m，骑士从左上到右下去拯救公主。每个格子对应一个迷室，骑士通过时会扣除生命值或者增加生命值，求到拯救公主，骑士的最小初始生命值应为多少？ 编写一个函数来计算确保骑士能够拯救到公主所需的最低初始健康点数。 例如，考虑到如下布局的地下城，如果骑士遵循最佳路径 右 -&gt; 右 -&gt; 下 -&gt; 下，则骑士的初始健康点数至少为 7。 -2 (K)">
+<meta property="og:image" content="http://yoursite.com/2020/07/13/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F/%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F%E9%A2%98.jpg">
+<meta property="article:published_time" content="2020-07-12T22:53:14.000Z">
+<meta property="article:modified_time" content="2020-07-15T13:20:24.884Z">
 <meta property="article:author" content="CodeSakura">
-<meta property="article:tag" content="数码，装机，游戏，学习笔记，编程踩坑，安装软件踩坑">
+<meta property="article:tag" content="力扣">
+<meta property="article:tag" content="刷题">
+<meta property="article:tag" content="dp">
+<meta property="article:tag" content="动态规划">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/13/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F/%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F%E9%A2%98.jpg">
   
     <link rel="alternative" href="/atom.xml" title="CodeSakura的博客" type="application/atom+xml">
   
@@ -158,64 +165,227 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-力扣刷题：地下城游戏" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-05-05T13:37:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">数据结构：栈的定义与基本操作</a>
+    <h1 class="article-title" itemprop="name">
+      力扣刷题：地下城游戏
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/07/13/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F/" class="archive-article-date">
+  	<time datetime="2020-07-12T22:53:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="力扣：地下城游戏"><a href="#力扣：地下城游戏" class="headerlink" title="力扣：地下城游戏"></a>力扣：地下城游戏</h3><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>已知一矩形地下城n*m，骑士从左上到右下去拯救公主。每个格子对应一个迷室，骑士通过时会扣除生命值或者增加生命值，求到拯救公主，骑士的最小初始生命值应为多少？</p>
+<p>编写一个函数来计算确保骑士能够拯救到公主所需的最低初始健康点数。</p>
+<p>例如，考虑到如下布局的地下城，如果骑士遵循最佳路径 右 -&gt; 右 -&gt; 下 -&gt; 下，则骑士的初始健康点数至少为 7。</p>
+<p>-2 (K)    -3    3<br>-5    -10    1<br>10    30    -5 (P)</p>
+<p>说明:</p>
+<p>骑士的健康点数没有上限。</p>
+<p>任何房间都可能对骑士的健康点数造成威胁，也可能增加骑士的健康点数，包括骑士进入的左上角房间以及公主被监禁的右下角房间。</p>
+<a id="more"></a>
+
+<h4 id="方法：动态规划"><a href="#方法：动态规划" class="headerlink" title="方法：动态规划"></a>方法：动态规划</h4><p>按照左上往右下走的顺序动态规划，对于每一条路径，我们需要记录2个值：<strong>出发点到该点的路径和</strong>，<strong>出发点到该点最小初始值</strong>。</p>
+<p><strong>举例（从起始点到1的坐标点2条明显路径对比）</strong>：</p>
+<p><img src="/2020/07/13/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F/%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F%E9%A2%98.jpg" alt></p>
+<p>由图可知，第一条绿色路径的<strong>路径和</strong>为1；<strong>初始值</strong>为3。</p>
+<p>第二条蓝色路径的<strong>路径和</strong>为-1；<strong>初始值</strong>为2。</p>
+<p>此时我们应保证<em>路径和足够大</em>，<em>初始值足够小</em>。而这时到（1，2）目标点后走到公主点时。我们不能选择初始值更小的蓝色线路，因为公主点为-2，蓝色路径和为-1，这导致线路初始值应为4。而相比之下绿色线路初始值3</p>
+<p>所以对于从左上到右下，每一次的dp，路径和与初始值都对其产生重要影响，这样的动态规划不具备<strong>无后效性</strong>。</p>
+<p>于是我们能考虑从右下到左上的路径规划。令dp[i][j]表示坐标（i，j）到终点所需要的<strong>最小初始值</strong>。也就是说，当我们走到（i，j）时，如果我们的<strong>路径和</strong> &gt;= <strong>初始值：dp[i][j]</strong>就能到达终点。</p>
+<p>这样我们无需关心路径和大小，只需关注初始值。对于dp[i][j],只需关心  dp[i][j+1]  和  dp[i+1][j]  的最小值<strong>minn</strong>，记录当前格子dunger（i,j），那么坐标（i，j）只需达到<strong>minn - dunger(i,j)</strong>即可，同时初始值最小得大于等于1.</p>
+<p><strong>状态转移方程如下：</strong></p>
+<p><strong>dp[i][j]   =  Max(    Min(dp[i][j+1] , dp[i+1][j])  - duger(i,j)     ,        1    )</strong></p>
+<p>最终答案为dp[0][0]。</p>
+<p><strong>边界条件：</strong></p>
+<p>当 i = n-1 或 j = m-1时，dp[i][j+1]或dp[i][j+1]存在无效值，因此将其无效值赋予最大值。</p>
+<p>特殊情况：当dp[n-1][m-1] = dp[n-1][m] + dp[n][m+1]; 所以令其二值为1.</p>
+<p><strong>代码</strong>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">calculateMinimumHP</span><span class="params">(<span class="keyword">int</span>[][] dungeon)</span> </span>&#123;</span><br><span class="line">           <span class="keyword">int</span> n = dungeon.length;  </span><br><span class="line">           <span class="keyword">int</span> m = dungeon[<span class="number">0</span>].length;</span><br><span class="line">           <span class="keyword">int</span>[][] dp = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>][m+<span class="number">1</span>];</span><br><span class="line">    		<span class="comment">//将数组值全设为Max</span></span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n ; i++) &#123;</span><br><span class="line">               Arrays.fill(dp[i],Integer.MAX_VALUE);</span><br><span class="line">           &#125;</span><br><span class="line">           dp[n][m-<span class="number">1</span>] = dp[n-<span class="number">1</span>][m] = <span class="number">1</span>;  <span class="comment">//dp[n-1][m-1]时，将二值设为1.</span></span><br><span class="line"></span><br><span class="line">    		<span class="comment">/*</span></span><br><span class="line"><span class="comment">    		*从倒序开始，使之初始值其决定因素。</span></span><br><span class="line"><span class="comment">    		*/</span></span><br><span class="line">           <span class="keyword">for</span> (<span class="keyword">int</span> i = n-<span class="number">1</span>; i &gt;= <span class="number">0</span> ; i--) &#123;</span><br><span class="line">               <span class="keyword">for</span> (<span class="keyword">int</span> j = m-<span class="number">1</span>; j &gt;= <span class="number">0</span> ; j--) &#123;</span><br><span class="line">                   dp[i][j] = Math.max(Math.min(dp[i][j+<span class="number">1</span>],dp[i+<span class="number">1</span>][j]) - dungeon[i][j],<span class="number">1</span>);</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">return</span> dp[<span class="number">0</span>][<span class="number">0</span>];</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<p>复杂度分析</p>
+<p>时间复杂度：O(N×M)，其中 N,MN,M 为给定矩阵的长宽。</p>
+<p>空间复杂度：O(N×M)，其中 N,MN,M 为给定矩阵的长宽，注意这里可以利用滚动数组进行优化，优化后空间复杂度可以达到 O(N)O(N)。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>老板大气了！&gt;.&lt;<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfbfk.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wxfk.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">力扣</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷题</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">dp</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">动态规划</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/13/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          力扣刷题：两个数组交集
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2020/07/09/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%98%A0%E5%B0%84%EF%BC%88map%EF%BC%89%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">读书笔记：映射（map）的基本操作</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -238,9 +408,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

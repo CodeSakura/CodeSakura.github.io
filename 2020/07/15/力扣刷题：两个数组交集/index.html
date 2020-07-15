@@ -6,16 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 栈 | CodeSakura的博客</title>
+  <title>力扣刷题：两个数组交集 | CodeSakura的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一名在校计科大学生">
-<meta property="og:type" content="website">
-<meta property="og:title" content="CodeSakura的博客">
-<meta property="og:url" content="http://yoursite.com/tags/%E6%A0%88/index.html">
+  <meta name="description" content="力扣刷题：两个数组交集题意： 给定两个数组，编写个函数求它们的交集。 示例 1： 输入：nums1 &#x3D; [1,2,2,1], nums2 &#x3D; [2,2]输出：[2,2]示例 2: 输入：nums1 &#x3D; [4,9,5], nums2 &#x3D; [9,4,9,8,4]输出：[4,9] 进阶：  如果给定数组已有序，如何优化算法？  如果nums1的大小比nums2小很多，那种方法优？  如果nums2的元素">
+<meta property="og:type" content="article">
+<meta property="og:title" content="力扣刷题：两个数组交集">
+<meta property="og:url" content="http://yoursite.com/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/index.html">
 <meta property="og:site_name" content="CodeSakura的博客">
-<meta property="og:description" content="一名在校计科大学生">
+<meta property="og:description" content="力扣刷题：两个数组交集题意： 给定两个数组，编写个函数求它们的交集。 示例 1： 输入：nums1 &#x3D; [1,2,2,1], nums2 &#x3D; [2,2]输出：[2,2]示例 2: 输入：nums1 &#x3D; [4,9,5], nums2 &#x3D; [9,4,9,8,4]输出：[4,9] 进阶：  如果给定数组已有序，如何优化算法？  如果nums1的大小比nums2小很多，那种方法优？  如果nums2的元素">
+<meta property="article:published_time" content="2020-07-15T12:54:27.000Z">
+<meta property="article:modified_time" content="2020-07-15T14:12:44.017Z">
 <meta property="article:author" content="CodeSakura">
-<meta property="article:tag" content="数码，装机，游戏，学习笔记，编程踩坑，安装软件踩坑">
+<meta property="article:tag" content="力扣">
+<meta property="article:tag" content="刷题">
+<meta property="article:tag" content="Hash">
+<meta property="article:tag" content="双指针">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="CodeSakura的博客" type="application/atom+xml">
@@ -158,64 +163,214 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-力扣刷题：两个数组交集" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" class="archive-article-date">
-  	<time datetime="2020-05-05T13:37:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-05-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/">数据结构：栈的定义与基本操作</a>
+    <h1 class="article-title" itemprop="name">
+      力扣刷题：两个数组交集
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/" class="archive-article-date">
+  	<time datetime="2020-07-15T12:54:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="力扣刷题：两个数组交集"><a href="#力扣刷题：两个数组交集" class="headerlink" title="力扣刷题：两个数组交集"></a>力扣刷题：两个数组交集</h3><p><strong>题意：</strong></p>
+<p>给定两个数组，编写个函数求它们的交集。</p>
+<p>示例 1：</p>
+<p><code>输入：nums1 = [1,2,2,1], nums2 = [2,2]</code><br><code>输出：[2,2]</code><br>示例 2:</p>
+<p><code>输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]</code><br><code>输出：[4,9]</code></p>
+<p>进阶：</p>
+<ul>
+<li><p>如果给定数组已有序，如何优化算法？</p>
+</li>
+<li><p>如果nums1的大小比nums2小很多，那种方法优？</p>
+</li>
+<li><p><strong>如果nums2的元素存在磁盘上，磁盘内存有限，不能一次加载所有元素到内存，如何解</strong>？</p>
+</li>
+</ul>
+<h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p><strong>方法一：哈希表</strong></p>
+<p>利用哈希表，将数组长度小的那个全部存入哈希表中，对于重复的数更新哈希中的键值对的值。然后通过new一个新的数组box记录，利用Map.getOrDefault方法，将数组2中的值与已存入map中的数组进行对比，相同就存入box并且更新键值对中的值减1。最后输出数组box。</p>
+<p><strong>例码：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] intersect(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums1.length &gt; nums2.length) &#123;</span><br><span class="line">            <span class="keyword">return</span> intersect(nums2,nums1);</span><br><span class="line">        &#125;</span><br><span class="line">        Map&lt;Integer,Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i : nums1) &#123;</span><br><span class="line">            <span class="keyword">int</span> cout = map.getOrDefault(i,<span class="number">0</span>) + <span class="number">1</span>;  <span class="comment">//将数组nums1输入map，并且记录值的重复值。</span></span><br><span class="line">            map.put(i,cout);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span>[] box = <span class="keyword">new</span> <span class="keyword">int</span>[nums1.length];</span><br><span class="line">        <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> nums : nums2) &#123;</span><br><span class="line">            <span class="keyword">int</span> cout = map.getOrDefault(nums,<span class="number">0</span>);  <span class="comment">//将数组nums2中存在与nums1中的键值记录在cout</span></span><br><span class="line">            <span class="keyword">if</span>(cout &gt; <span class="number">0</span>) &#123;  <span class="comment">//存在时记录，更新键值对</span></span><br><span class="line">                box[sum++] = nums;</span><br><span class="line">                cout--;</span><br><span class="line">                <span class="keyword">if</span>(cout &gt; <span class="number">0</span> ) &#123;</span><br><span class="line">                    map.put(nums,cout);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> &#123;  <span class="comment">//不存在移除nums2中的该数</span></span><br><span class="line">                    map.remove(nums);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> Arrays.copyOfRange(box,<span class="number">0</span>,sum);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>方法二：二指针定位</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] intersect(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2) &#123;</span><br><span class="line">    <span class="keyword">int</span> length1 = nums1.length;</span><br><span class="line">    <span class="keyword">int</span> length2 = nums2.length;</span><br><span class="line">    <span class="keyword">int</span>[] box = <span class="keyword">new</span> <span class="keyword">int</span>[Math.min(length1,length2)];</span><br><span class="line">    Arrays.sort(nums1);</span><br><span class="line">    Arrays.sort(nums2);</span><br><span class="line">    <span class="keyword">int</span> numi = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> numi1 = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">int</span> numi2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (numi1 &lt; length1 &amp;&amp; numi2 &lt; length2) &#123;</span><br><span class="line">        <span class="keyword">if</span>(nums1[numi1] &gt; nums2[numi2]) &#123;</span><br><span class="line">            numi2++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(nums2[numi2] &gt; nums1[numi1]) &#123;</span><br><span class="line">            numi1++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            box[numi] = nums1[numi1];</span><br><span class="line">            numi1++;</span><br><span class="line">            numi2++;</span><br><span class="line">            numi++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> Arrays.copyOfRange(box,<span class="number">0</span>,numi);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>进阶三解法：</strong></p>
+<p>对应进阶问题三，如果内存十分小，不足以将数组全部载入内存，那么必然也不能使用哈希这类费空间的算法，只 能选用空间复杂度最小的算法，即解法一。</p>
+<p> 但是解法一中需要改造，一般说排序算法都是针对于内部排序，一旦涉及到跟磁盘打交道（外部排序），则需要特 殊的考虑。</p>
+<p><code>归并排序</code>是天然适合外部排序的算法，可以将分割后的子数组写到单个文件中，归并时将小文件合并为 更大的文件。当两个数组均排序完成生成两个大文件后，即可使用双指针遍历两个文件，如此可以使空间复杂度最 低。 关于外部排序与JOIN，强烈推荐大家看一下 </p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>老板大气了！&gt;.&lt;<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/zfbfk.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/wxfk.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">力扣</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">栈</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">刷题</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hash</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">双指针</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/07/13/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">力扣刷题：地下城游戏</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -238,9 +393,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
