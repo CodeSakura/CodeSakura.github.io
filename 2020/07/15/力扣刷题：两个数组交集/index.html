@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="CodeSakura的博客">
 <meta property="og:description" content="力扣刷题：两个数组交集题意： 给定两个数组，编写个函数求它们的交集。 示例 1： 输入：nums1 &#x3D; [1,2,2,1], nums2 &#x3D; [2,2]输出：[2,2]示例 2: 输入：nums1 &#x3D; [4,9,5], nums2 &#x3D; [9,4,9,8,4]输出：[4,9] 进阶：  如果给定数组已有序，如何优化算法？  如果nums1的大小比nums2小很多，那种方法优？  如果nums2的元素">
 <meta property="article:published_time" content="2020-07-15T12:54:27.000Z">
-<meta property="article:modified_time" content="2020-07-15T14:12:44.017Z">
+<meta property="article:modified_time" content="2020-07-15T15:37:06.996Z">
 <meta property="article:author" content="CodeSakura">
 <meta property="article:tag" content="力扣">
 <meta property="article:tag" content="刷题">
@@ -197,6 +197,8 @@
 <li><p><strong>如果nums2的元素存在磁盘上，磁盘内存有限，不能一次加载所有元素到内存，如何解</strong>？</p>
 </li>
 </ul>
+<a id="more"></a>
+
 <h4 id="题解："><a href="#题解：" class="headerlink" title="题解："></a>题解：</h4><p><strong>方法一：哈希表</strong></p>
 <p>利用哈希表，将数组长度小的那个全部存入哈希表中，对于重复的数更新哈希中的键值对的值。然后通过new一个新的数组box记录，利用Map.getOrDefault方法，将数组2中的值与已存入map中的数组进行对比，相同就存入box并且更新键值对中的值减1。最后输出数组box。</p>
 <p><strong>例码：</strong></p>
@@ -475,6 +477,30 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">入门</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">dp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">力扣</a>
               </li>
              
@@ -491,27 +517,31 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">dp</a>
+                <a href="javascript:void(0)" class="js-tag color2">动态规划，算法，poj</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">动态规划</a>
+                <a href="javascript:void(0)" class="js-tag color4">POJ</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">TCP</a>
+                <a href="javascript:void(0)" class="js-tag color2">动态规划，最大公共序列</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color4">回溯法</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">入门</a>
+                <a href="javascript:void(0)" class="js-tag color2">算法，博弈树</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">基础知识，补漏</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -527,35 +557,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">学习笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">POJ</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">动态规划，最大公共序列</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">基础知识，补漏</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">栈</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">动态规划，算法，poj</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">回溯法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">算法，博弈树</a>
+                <a href="javascript:void(0)" class="js-tag color4">顺序表</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -571,19 +577,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">例题</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">顺序表</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">映射</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">读书笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">例题</a>
               </li>
             
             <div class="clearfix"></div>
