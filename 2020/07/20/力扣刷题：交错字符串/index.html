@@ -6,22 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>学习笔记:算法贪心法 | CodeSakura的博客</title>
+  <title>力扣刷题：交错字符串 | CodeSakura的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据结构与算法： 贪心法基础知识贪心算法总是能做出当前状态最好的选择，不是从整体最优考虑，每次选择都是局部最优解。 核心是所使用的情况是每一步的最优选择能导致最后结果的整体最优解。 贪心法与递归不同，前者的每一步都是选择当前最佳结果的，递归推进的每一步是固定的递归式。 贪心法将当时看似最佳的贪心选择，不断地将问题实例归纳为更小的类似子问题。">
+  <meta name="description" content="力扣刷题：交错字符串题意：给定三个字符串S1,S2,S3.验证S3是否由S1和S2交错组成。 示例1： 12输入: s1 &#x3D; &quot;aabcc&quot;, s2 &#x3D; &quot;dbbca&quot;, s3 &#x3D; &quot;aadbbcbcac&quot;输出: true  示例2： 12输入: s1 &#x3D; &quot;aabcc&quot;, s2">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学习笔记:算法贪心法">
-<meta property="og:url" content="http://yoursite.com/2020/04/23/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AE%97%E6%B3%95%E8%B4%AA%E5%BF%83%E6%B3%95/index.html">
+<meta property="og:title" content="力扣刷题：交错字符串">
+<meta property="og:url" content="http://yoursite.com/2020/07/20/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%BA%A4%E9%94%99%E5%AD%97%E7%AC%A6%E4%B8%B2/index.html">
 <meta property="og:site_name" content="CodeSakura的博客">
-<meta property="og:description" content="数据结构与算法： 贪心法基础知识贪心算法总是能做出当前状态最好的选择，不是从整体最优考虑，每次选择都是局部最优解。 核心是所使用的情况是每一步的最优选择能导致最后结果的整体最优解。 贪心法与递归不同，前者的每一步都是选择当前最佳结果的，递归推进的每一步是固定的递归式。 贪心法将当时看似最佳的贪心选择，不断地将问题实例归纳为更小的类似子问题。">
-<meta property="article:published_time" content="2020-04-23T06:25:52.000Z">
-<meta property="article:modified_time" content="2020-04-23T17:47:39.289Z">
+<meta property="og:description" content="力扣刷题：交错字符串题意：给定三个字符串S1,S2,S3.验证S3是否由S1和S2交错组成。 示例1： 12输入: s1 &#x3D; &quot;aabcc&quot;, s2 &#x3D; &quot;dbbca&quot;, s3 &#x3D; &quot;aadbbcbcac&quot;输出: true  示例2： 12输入: s1 &#x3D; &quot;aabcc&quot;, s2">
+<meta property="og:image" content="http://yoursite.com/2020/07/20/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%BA%A4%E9%94%99%E5%AD%97%E7%AC%A6%E4%B8%B2/%E4%BA%A4%E5%B7%AE%E9%97%AE%E9%A2%98%E5%8A%9B%E6%89%A3.png">
+<meta property="article:published_time" content="2020-07-20T02:43:23.000Z">
+<meta property="article:modified_time" content="2020-07-20T07:55:20.082Z">
 <meta property="article:author" content="CodeSakura">
-<meta property="article:tag" content="贪心法">
-<meta property="article:tag" content="数据结构">
-<meta property="article:tag" content="算法">
-<meta property="article:tag" content="学习笔记">
+<meta property="article:tag" content="力扣刷题，动态规划">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/07/20/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%BA%A4%E9%94%99%E5%AD%97%E7%AC%A6%E4%B8%B2/%E4%BA%A4%E5%B7%AE%E9%97%AE%E9%A2%98%E5%8A%9B%E6%89%A3.png">
   
     <link rel="alternative" href="/atom.xml" title="CodeSakura的博客" type="application/atom+xml">
   
@@ -163,32 +162,80 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-学习笔记-算法贪心法" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-力扣刷题：交错字符串" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      学习笔记:算法贪心法
+      力扣刷题：交错字符串
     </h1>
   
 
         
-        <a href="/2020/04/23/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AE%97%E6%B3%95%E8%B4%AA%E5%BF%83%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2020-04-23T06:25:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-04-23</time>
+        <a href="/2020/07/20/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%BA%A4%E9%94%99%E5%AD%97%E7%AC%A6%E4%B8%B2/" class="archive-article-date">
+  	<time datetime="2020-07-20T02:43:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-07-20</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="数据结构与算法：-贪心法"><a href="#数据结构与算法：-贪心法" class="headerlink" title="数据结构与算法： 贪心法"></a>数据结构与算法： 贪心法</h2><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><p>贪心算法总是能做出当前状态最好的选择，不是从整体最优考虑，每次选择都是局部最优解。</p>
-<p><strong>核心是所使用的情况是每一步的最优选择能导致最后结果的整体最优解。</strong></p>
-<p>贪心法与递归不同，前者的每一步都是选择<strong>当前最佳结果</strong>的，递归推进的每一步是固定的递归式。</p>
-<p>贪心法将当时看似最佳的<strong>贪心选择</strong>，不断地将问题实例归纳为更小的类似子问题。</p>
-<blockquote>
-</blockquote>
+        <h3 id="力扣刷题：交错字符串"><a href="#力扣刷题：交错字符串" class="headerlink" title="力扣刷题：交错字符串"></a>力扣刷题：交错字符串</h3><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>给定三个字符串S1,S2,S3.验证S3是否由S1和S2<strong>交错组成</strong>。</p>
+<p>示例1：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: s1 &#x3D; &quot;aabcc&quot;, s2 &#x3D; &quot;dbbca&quot;, s3 &#x3D; &quot;aadbbcbcac&quot;</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure>
+
+<p>示例2：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: s1 &#x3D; &quot;aabcc&quot;, s2 &#x3D; &quot;dbbca&quot;, s3 &#x3D; &quot;aadbbbaccc&quot;</span><br><span class="line">输出: false</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h4 id="方法一：动态规划"><a href="#方法一：动态规划" class="headerlink" title="方法一：动态规划"></a>方法一：动态规划</h4><p>记|s1| = n,|s2| = m;</p>
+<p><strong>思路后与算法：</strong></p>
+<p><strong>双指针错在哪？</strong>：我们能用指针p1指向s1的元素，用p2指向s2的元素；p3指向s3的元素。然后通过对p1和p2，对p3一一对应，成功的下标后移；理论上可行，但实例1就成为了反例。</p>
+<p>s1 = aabcc，s2 = dbbca；s3 = aadbbcbcac。</p>
+<ul>
+<li><p><code>p3 -&gt; a ，p1 -&gt; a，p2 -&gt; d；p1后移，s1更新 abcc；s2更新dbbca；s3更新adbbcbcac。</code></p>
+</li>
+<li><p><code>p3 -&gt; a ，p1 -&gt; a，p2 -&gt; d；p1后移，s1更新 bcc；s2更新dbbca；s3更新dbbcbcac。</code></p>
+</li>
+<li><p><code>p3 -&gt; d ，p1 -&gt; b，p2 -&gt; d；p2后移，s1更新 bcc；s2更新bbca；s3更新bbcbcac。</code></p>
+</li>
+<li><p><code>p3 -&gt; b ，p1 -&gt; b，p2 -&gt; b；p1后移，s1更新 cc；s2更新bbca；s3更新bcbcac。**当p1，p2指向元素相同出现分歧，我们默认取p1**</code></p>
+</li>
+<li><p><code>p3 -&gt; b ，p1 -&gt; c，p2 -&gt; b；p2后移，s1更新 cc；s2更新bca；s3更新cbcac。</code></p>
+</li>
+<li><p><code>p3 -&gt; c ，p1 -&gt; c，p2 -&gt; b；p1后移，s1更新 c；s2更新bca；s3更新bcac。</code></p>
+</li>
+<li><p><code>p3 -&gt; b ，p1 -&gt; c，p2 -&gt; b；p2后移，s1更新 c；s2更新ca；s3更新cac。</code></p>
+</li>
+<li><p><code>p3 -&gt; c ，p1 -&gt; c，p2 -&gt; c；p1后移，s1更新 0；s2更新ca；s3更新ac。</code></p>
+</li>
+<li><p><code>p3 -&gt; a ，p1 -&gt; 0，p2 -&gt; c；此时p3没有与之匹配的值，**双指针判断为错**，实则是正确的。</code></p>
+</li>
+</ul>
+<p><em>双指针主要是在p1，与p2同时指向一个元素时，p3的判断会优先代码考前的指针，而导致后续顺序出错，没有与之匹配的元素</em></p>
+<p><strong>动态规划思想：</strong></p>
+<p>首先，如果|s1|+|s2| != |s3|。那么必不可能能全部交差。所以在|s1|+|s2| == |s3|的情况下讨论。</p>
+<p>f(i,j)表示s1的前 i 个元素和s2的前 j 个元素，能否交差成s3的前 i+j 个元素。因为是顺序交差，那么s1的最后一个元素 i ，或者s2的最后一个元素 j 必在s3的 i+j 上。</p>
+<p>则如果s1的 i 与s3的 i+j 相等，那么s1的前 i 个元素，与s2的前 j 个元素能否交差成s3的前 i+j 个元素，</p>
+<p>取决于s1的 i-1 个元素，与s2的前 j 个元素能否交差成s3的 i+j-1个元素的<strong>前置</strong>。</p>
+<p>即f(i,j)取决于f(i-1,j),<strong>此时前者要为真，后者必先为真。</strong>同时还有j-1的情况。于是有以下<strong>状态转移方程：</strong>        </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f(i,j) = &#123;f(i-<span class="number">1</span>,j) and s1[i-<span class="number">1</span>]==s3[i+j-<span class="number">1</span>] <span class="function">or <span class="title">f</span><span class="params">(i,j<span class="number">-1</span>)</span> and s2[j-1]</span>==s3[i+j-<span class="number">1</span>] &#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>图形解释:</strong></p>
+<p><img src="/2020/07/20/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%BA%A4%E9%94%99%E5%AD%97%E7%AC%A6%E4%B8%B2/%E4%BA%A4%E5%B7%AE%E9%97%AE%E9%A2%98%E5%8A%9B%E6%89%A3.png" alt></p>
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isInterleave</span><span class="params">(String s1, String s2, String s3)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s1.length(), m = s2.length(), t = s3.length();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n + m != t) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">boolean</span>[][] f = <span class="keyword">new</span> <span class="keyword">boolean</span>[n + <span class="number">1</span>][m + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        f[<span class="number">0</span>][<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= m; ++j) &#123;</span><br><span class="line">                <span class="keyword">int</span> p = i + j - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    f[i][j] = f[i][j] || (f[i - <span class="number">1</span>][j] &amp;&amp; s1.charAt(i - <span class="number">1</span>) == s3.charAt(p));</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (j &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    f[i][j] = f[i][j] || (f[i][j - <span class="number">1</span>] &amp;&amp; s2.charAt(j - <span class="number">1</span>) == s3.charAt(p));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> f[n][m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>时间复杂度和空间复杂度皆为：O（mn）。</p>
+<p><strong>因为数组f的第i行只与i-1行有关，能用滚动数组来优化空间。</strong></p>
+<p>滚动数组题：</p>
+<p><strong>滚动数组优化：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isInterleave</span><span class="params">(String s1, String s2, String s3)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> n = s1.length(), m = s2.length(), t = s3.length();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (n + m != t) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">boolean</span>[] f = <span class="keyword">new</span> <span class="keyword">boolean</span>[m + <span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">        f[<span class="number">0</span>] = <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= n; ++i) &#123;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt;= m; ++j) &#123;</span><br><span class="line">                <span class="keyword">int</span> p = i + j - <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">if</span> (i &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    f[j] = f[j] &amp;&amp; s1.charAt(i - <span class="number">1</span>) == s3.charAt(p);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (j &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                    f[j] = f[j] || (f[j - <span class="number">1</span>] &amp;&amp; s2.charAt(j - <span class="number">1</span>) == s3.charAt(p));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> f[m];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>空间复杂度为s2长度O（m）。</p>
 
       
 
@@ -233,19 +280,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">贪心法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">数据结构</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">力扣刷题，动态规划</a>
         		</li>
       		
 		</ul>
@@ -301,7 +336,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/04/23/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0-%E7%AE%97%E6%B3%95%E8%B4%AA%E5%BF%83%E6%B3%95/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/07/20/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%BA%A4%E9%94%99%E5%AD%97%E7%AC%A6%E4%B8%B2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -315,18 +350,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/04/27/MarkDown%E7%BC%96%E5%86%99%E6%A0%BC%E5%BC%8F%E7%AE%80%E8%BF%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          MarkDown编写格式简述
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/04/22/%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E8%BD%BDHexo%E5%8D%9A%E5%AE%A2%E3%80%82%E3%80%82/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">第一次搭载Hexo博客。。</div>
+    <a href="/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">力扣刷题：两个数组交集</div>
       <i class="icon-circle-right"></i>
     </a>
   
