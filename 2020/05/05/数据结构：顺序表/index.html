@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/BlogID.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/BlogID.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/BlogID.png">
+  <link rel="mask-icon" href="/BlogID.png" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="代码记录数据结构的基础结构之–顺序表 包含顺序表的初始化，置空，判空，打印，插入，删除，查找，元素定位，表与表的添加。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据结构：顺序表">
+<meta property="og:url" content="http://yoursite.com/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E9%A1%BA%E5%BA%8F%E8%A1%A8/index.html">
+<meta property="og:site_name" content="CodeSakura的博客">
+<meta property="og:description" content="代码记录数据结构的基础结构之–顺序表 包含顺序表的初始化，置空，判空，打印，插入，删除，查找，元素定位，表与表的添加。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-05-05T11:04:51.000Z">
+<meta property="article:modified_time" content="2020-05-05T13:53:54.840Z">
+<meta property="article:author" content="CodeSakura">
+<meta property="article:tag" content="数据结构">
+<meta property="article:tag" content="顺序表">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E9%A1%BA%E5%BA%8F%E8%A1%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>数据结构：顺序表 | CodeSakura的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CodeSakura的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">喜欢数码，热爱硬件，乐于折腾，苦于代码</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E9%A1%BA%E5%BA%8F%E8%A1%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/BlogID.png">
+      <meta itemprop="name" content="CodeSakura">
+      <meta itemprop="description" content="一名在校计科大学生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CodeSakura的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据结构：顺序表
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-05-05 19:04:51 / 修改时间：21:53:54" itemprop="dateCreated datePublished" datetime="2020-05-05T19:04:51+08:00">2020-05-05</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="代码记录"><a href="#代码记录" class="headerlink" title="代码记录"></a>代码记录</h2><p><strong>数据结构的基础结构之–顺序表</strong></p>
+<p>包含顺序表的初始化，置空，判空，打印，插入，删除，查找，元素定位，表与表的添加。</p>
+<a id="more"></a>
+
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;functional&gt; </span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> OK 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ERROR 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TRUE 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> FALSE 0</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXSIZE 100</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> ElemType;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span> Status;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>  //线性表的顺序存储结构</span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">	ElemType Data[MAXSIZE];  <span class="comment">//数组存储元素</span></span><br><span class="line">	<span class="keyword">int</span> length;  <span class="comment">//长度</span></span><br><span class="line">&#125;SqList;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">Print</span><span class="params">(ElemType e)</span>  <span class="comment">//打印元素e</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d "</span>, e);</span><br><span class="line">	<span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">InitList</span><span class="params">(SqList *s)</span>  <span class="comment">//初始化，长度为0</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	s-&gt;length = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">ListEmpty</span><span class="params">(SqList s)</span>  <span class="comment">//线性表若为空返回true，否在返回false</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.length == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> TRUE;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> FALSE;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">ClearList</span><span class="params">(SqList *s)</span>  <span class="comment">//将线性表重置为空表，与初始化操作相同</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	s-&gt;length = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">ListLength</span><span class="params">(SqList s)</span>  <span class="comment">//返回线性表长度</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> s.length;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">ElemGet</span><span class="params">(SqList s,<span class="keyword">int</span> i, ElemType *e)</span>  <span class="comment">//从线性表中获得元素的值</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s.length == <span class="number">0</span> || i &lt; <span class="number">1</span> || i &gt; s.length)  <span class="comment">//i值有误或者线性表里没有元素</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR;</span><br><span class="line">	&#125;</span><br><span class="line">	*e = s.Data[i - <span class="number">1</span>];  <span class="comment">//数组是从0开始，用i定位就需要减1</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">LocateElem</span><span class="params">(SqList s, ElemType e)</span>  <span class="comment">//找到元素e在线性表中的位置</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">if</span> (s.length == <span class="number">0</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> FALSE;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; s.length; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (s.Data[i] == e)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">break</span>;  <span class="comment">//找到该元素后跳出循环</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (i &gt;= s.length)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> FALSE;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">InsertList</span><span class="params">(SqList *s, <span class="keyword">int</span> i, ElemType e)</span>  <span class="comment">//在s中第i个位置之前插入元素e</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">if</span> (s-&gt;length == MAXSIZE)  <span class="comment">//满</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (i&lt;<span class="number">1</span> || i&gt;s-&gt;length + <span class="number">1</span>)  <span class="comment">//位置i有误</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (i &lt;= s-&gt;length)  <span class="comment">//插入时不在表尾</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">for</span> (k = s-&gt;length - <span class="number">1</span>; k &gt;= i - <span class="number">1</span>; k--)  <span class="comment">//将要插入位置之后的元素后移一位</span></span><br><span class="line">	&#123;</span><br><span class="line">		s-&gt;Data[k + <span class="number">1</span>] = s-&gt;Data[k];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">s-&gt;Data[i - <span class="number">1</span>] = e;  <span class="comment">//元素插入并长度加1</span></span><br><span class="line">s-&gt;length++;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> OK;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">DeleteList</span><span class="params">(SqList *s, <span class="keyword">int</span> i, ElemType *e)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">if</span> (s-&gt;length == <span class="number">0</span>)  <span class="comment">//空</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span> (i&lt;<span class="number">1</span> || i&gt;s-&gt;length )  <span class="comment">//位置i有误</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">return</span> ERROR;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	*e = s-&gt;Data[i - <span class="number">1</span>];  <span class="comment">//将被删除的元素返回给e</span></span><br><span class="line">	<span class="keyword">if</span> (i &lt; s-&gt;length)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span> (k = i; k &lt; s-&gt;length; k++)</span><br><span class="line">		&#123;</span><br><span class="line">			s-&gt;Data[k - <span class="number">1</span>] = s-&gt;Data[k];  <span class="comment">//将删除位置后面的元素前移i个单位</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	s-&gt;length--;</span><br><span class="line">	<span class="keyword">return</span> OK;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">Status <span class="title">TraverList</span><span class="params">(SqList s)</span>  <span class="comment">//遍历所有线性表中的元素</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; s.length; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		Print(s.Data[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> OK;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unionList</span><span class="params">(SqList *sa, SqList sb)</span>  <span class="comment">//将所有的在线性表sb但不在sa中的元素插入sa</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> sa_len, sb_len, i;</span><br><span class="line">	ElemType e;</span><br><span class="line">	sa_len = ListLength(*sa);</span><br><span class="line">	sb_len = ListLength(sb);</span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; sa_len; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		ElemGet(sb, i, &amp;e);  <span class="comment">//sb中第i个元素赋值于e</span></span><br><span class="line">		<span class="keyword">if</span> (!LocateElem(*sa, e))  <span class="comment">//如果线性表sa中不存在与e相同的元素</span></span><br><span class="line">		&#123;</span><br><span class="line">			InsertList(sa, ++sa_len, e);  <span class="comment">//将sb中有而sa中无的元素队尾插入sa</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	SqList S;</span><br><span class="line">	ElemType e1,e2;</span><br><span class="line"></span><br><span class="line">	InitList(&amp;S);  <span class="comment">//初始化,将1到10插入线性表</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		InsertList(&amp;S, i, i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"初始的线性表元素为：\n"</span>);</span><br><span class="line">	TraverList(S);</span><br><span class="line">	</span><br><span class="line">	InsertList(&amp;S, <span class="number">3</span>, <span class="number">666</span>);  <span class="comment">//在第三个元素位置插入666</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"在第三个元素位置插入666后\n"</span>);</span><br><span class="line">	TraverList(S);</span><br><span class="line">	</span><br><span class="line">	DeleteList(&amp;S, <span class="number">8</span>, &amp;e1);  <span class="comment">//将第8个元素删除</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"将第8个元素删除后,删除的元素e为=%d\n"</span>,e1);</span><br><span class="line">	TraverList(S);</span><br><span class="line">	</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"寻找元素为65是否在在线性表内，当前线性表为：\n"</span>);</span><br><span class="line">	TraverList(S);</span><br><span class="line">	e2 = LocateElem(S, <span class="number">65</span>);</span><br><span class="line">	<span class="keyword">if</span> (e2 == <span class="number">65</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, e2);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"没有该元素\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div><p style="font-size:14px; color:#34495e; margin:0 0 5px 0;">如果有用，看到这发个糖撒！</p></div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wx.png" alt="CodeSakura 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/zfbfk.jpg" alt="CodeSakura 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="tag"># 数据结构</a>
+              <a href="/tags/%E9%A1%BA%E5%BA%8F%E8%A1%A8/" rel="tag"># 顺序表</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/04/28/%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E8%A1%A5%E6%BC%8F%EF%BC%9A%E2%80%98i++%E4%B8%8E++i%E2%80%99%E5%8C%BA%E5%88%AB/" rel="prev" title="基础知识补漏：‘i++与++i’区别">
+      <i class="fa fa-chevron-left"></i> 基础知识补漏：‘i++与++i’区别
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/05/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9A%E6%A0%88%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" rel="next" title="数据结构：栈的定义与基本操作">
+      数据结构：栈的定义与基本操作 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码记录"><span class="nav-number">1.</span> <span class="nav-text">代码记录</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CodeSakura"
+      src="/images/BlogID.png">
+  <p class="site-author-name" itemprop="name">CodeSakura</p>
+  <div class="site-description" itemprop="description">一名在校计科大学生</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">33</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/CodeSakura" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;CodeSakura" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CodeSakura</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-area"></i>
+    </span>
+    <span title="站点总字数">27k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">25 分钟</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
