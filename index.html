@@ -177,6 +177,118 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/30/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/BlogID.png">
+      <meta itemprop="name" content="CodeSakura">
+      <meta itemprop="description" content="一名在校计科大学生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CodeSakura的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/07/30/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86/" class="post-title-link" itemprop="url">力扣刷题：整数拆分</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-30 18:15:08" itemprop="dateCreated datePublished" datetime="2020-07-30T18:15:08+08:00">2020-07-30</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-31 23:20:26" itemprop="dateModified" datetime="2020-07-31T23:20:26+08:00">2020-07-31</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/30/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/30/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E6%95%B4%E6%95%B0%E6%8B%86%E5%88%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>722</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="力扣刷题：整数拆分"><a href="#力扣刷题：整数拆分" class="headerlink" title="力扣刷题：整数拆分"></a>力扣刷题：整数拆分</h3><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>已知n正整数，求至少2个数以上相加等于n的元素，求这些元素乘积的最大值。</p>
+<p><code>示例 1:</code></p>
+<p><code>输入: 2</code><br><code>输出: 1</code><br><code>解释: 2 = 1 + 1, 1 × 1 = 1。</code><br><code>示例 2:</code></p>
+<p><code>输入: 10</code><br><code>输出: 36</code><br><code>解释: 10 = 3 + 3 + 4, 3 × 3 × 4 = 36。</code></p>
+<h4 id="动态规划："><a href="#动态规划：" class="headerlink" title="动态规划："></a>动态规划：</h4><p>首先动态规划得先想到细分大问题，这个问题能通过小问题和dp来完成后续的操作，主要是构建<em>状态转移方程</em>。</p>
+<p>对于&gt;=2以上的n值，可以拆分为至少2个正整数的和。<em>令k是拆分出来的第一个正整数，剩下的部分n - k可以选择不拆或者继续拆分至少2个正整数的和。而求n的2数的乘积的最大值，又于n-k部分的最大值决定。即可用动态规划。</em></p>
+<p>数组dp，其中dp[i]表示将正整数i拆分为至少2个的正整数和之后，这些正整数和的乘积最大值。特别地，0不是正整数，1是最小的正整数，二者皆不能拆分。</p>
+<p>则dp[0] = dp[1] =0；</p>
+<p><strong>剩下的n-k部分有2条分支：</strong></p>
+<ul>
+<li><p>将n-k部分继续拆分，这里用i枚举当前n，j枚举第一个正整数。则此时乘积：j x dp[i - j]；</p>
+</li>
+<li><p>将n-k部分不拆分，则此时乘积：j x （i - j）。</p>
+</li>
+</ul>
+<p><strong>动态转移方程：</strong></p>
+<p>dp[i] = 遍历所有j的max{max(j x ( i - j ) , j x dp[i - j] ) };</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">integerBreak</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= n ; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt; i ; j++) &#123;</span><br><span class="line">                sum = Math.max(sum,Math.max(j * (i - j),j * f[i - j]));</span><br><span class="line">            &#125;</span><br><span class="line">            f[i] = sum;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f[n];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="优化后动态规划："><a href="#优化后动态规划：" class="headerlink" title="优化后动态规划："></a>优化后动态规划：</h4>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/28/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -205,7 +317,21 @@
               <time title="创建时间：2020-07-28 23:17:15 / 修改时间：23:38:19" itemprop="dateCreated datePublished" datetime="2020-07-28T23:17:15+08:00">2020-07-28</time>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/28/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/28/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%9C%80%E5%A4%A7%E6%B7%B1%E5%BA%A6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -285,7 +411,21 @@
               <time title="创建时间：2020-07-26 22:39:51 / 修改时间：22:53:35" itemprop="dateCreated datePublished" datetime="2020-07-26T22:39:51+08:00">2020-07-26</time>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/26/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%88%86%E5%89%B2%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/26/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%88%86%E5%89%B2%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -372,7 +512,21 @@
               <time title="创建时间：2020-07-23 22:57:45 / 修改时间：23:17:09" itemprop="dateCreated datePublished" datetime="2020-07-23T22:57:45+08:00">2020-07-23</time>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/23/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/23/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E6%9C%80%E5%B0%8F%E8%B7%AF%E5%BE%84%E5%92%8C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -452,7 +606,21 @@
               <time title="创建时间：2020-07-20 10:43:23 / 修改时间：15:55:20" itemprop="dateCreated datePublished" datetime="2020-07-20T10:43:23+08:00">2020-07-20</time>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/20/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%BA%A4%E9%94%99%E5%AD%97%E7%AC%A6%E4%B8%B2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/20/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%BA%A4%E9%94%99%E5%AD%97%E7%AC%A6%E4%B8%B2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -537,7 +705,21 @@
               <time title="创建时间：2020-07-15 20:54:27 / 修改时间：23:37:06" itemprop="dateCreated datePublished" datetime="2020-07-15T20:54:27+08:00">2020-07-15</time>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -636,7 +818,21 @@
                 <time title="修改时间：2020-07-15 21:20:24" itemprop="dateModified" datetime="2020-07-15T21:20:24+08:00">2020-07-15</time>
               </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/13/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/13/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9C%B0%E4%B8%8B%E5%9F%8E%E6%B8%B8%E6%88%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -722,7 +918,21 @@
               <time title="创建时间：2020-07-09 16:50:01 / 修改时间：21:22:19" itemprop="dateCreated datePublished" datetime="2020-07-09T16:50:01+08:00">2020-07-09</time>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/09/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%98%A0%E5%B0%84%EF%BC%88map%EF%BC%89%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/09/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%98%A0%E5%B0%84%EF%BC%88map%EF%BC%89%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -806,7 +1016,21 @@
               <time title="创建时间：2020-07-09 13:29:52 / 修改时间：21:46:48" itemprop="dateCreated datePublished" datetime="2020-07-09T13:29:52+08:00">2020-07-09</time>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/09/%E5%8A%9B%E6%89%A3%EF%BC%9A1-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/09/%E5%8A%9B%E6%89%A3%EF%BC%9A1-%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -887,7 +1111,21 @@
               <time title="创建时间：2020-07-07 22:47:13 / 修改时间：23:04:50" itemprop="dateCreated datePublished" datetime="2020-07-07T22:47:13+08:00">2020-07-07</time>
             </span>
 
-          <br>
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/07/07/Java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/07/Java%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
             <span class="post-meta-item" title="本文字数">
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
@@ -935,96 +1173,10 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%9A%E6%A5%BC%E5%B1%82%E7%BD%AE%E7%90%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/BlogID.png">
-      <meta itemprop="name" content="CodeSakura">
-      <meta itemprop="description" content="一名在校计科大学生">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodeSakura的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%9A%E6%A5%BC%E5%B1%82%E7%BD%AE%E7%90%83/" class="post-title-link" itemprop="url">动态规划：楼层置球</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-13 20:57:12" itemprop="dateCreated datePublished" datetime="2020-06-13T20:57:12+08:00">2020-06-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-07-07 23:06:10" itemprop="dateModified" datetime="2020-07-07T23:06:10+08:00">2020-07-07</time>
-              </span>
-
-          <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.3k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="动态规划：poj3783-楼层置球"><a href="#动态规划：poj3783-楼层置球" class="headerlink" title="动态规划：poj3783 楼层置球"></a>动态规划：poj3783 楼层置球</h2><p><img src="/2020/06/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%9A%E6%A5%BC%E5%B1%82%E7%BD%AE%E7%90%83/poj3783.png" alt></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%EF%BC%9A%E6%A5%BC%E5%B1%82%E7%BD%AE%E7%90%83/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1092,12 +1244,12 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">40</span>
         <span class="site-state-item-name">标签</span>
       </div>
   </nav>
@@ -1138,12 +1290,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">30k</span>
+    <span title="站点总字数">31k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">27 分钟</span>
+    <span title="站点阅读时长">28 分钟</span>
 </div>
 
         
@@ -1220,6 +1372,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'qQtea1L5lkgjE9rKrabdhpdr-gzGzoHsz',
+      appKey     : 'DwSK4clB5zkI38pqAqYYQMrC',
+      placeholder: "留下邮箱，有回复时你将收到提醒，邮箱不会被公开。",
+      avatar     : 'wavatar',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
