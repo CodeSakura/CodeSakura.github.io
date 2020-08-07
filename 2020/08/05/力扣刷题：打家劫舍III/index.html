@@ -20,26 +20,22 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="个人博客搭载目的  起初，在刷题的时候想着自己做了这么多题，写着写着就忘了，得搞点什么东西来记录下。而手边又没什么工具，记得在当初在b站刷到羊哥的个人博客搭载视频的时候，卧槽这就是程序员的浪漫吗，于是就进了这个大坑。    还记得当初自己上高中的时候，就想自己拥有一个网站，然后打扮的漂漂亮亮的，播着自己喜欢的音乐，绝不能让别人知道我当初这个目的是想…打开视频，噢我明白了，然后实际操作，懵逼。">
+  <meta name="description" content="力扣刷题：打家劫舍III题意在上次打劫完一条街道之后和一圈房屋后，小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为“根”。 除了“根”之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果两个直接相连的房子在同一天晚上被打劫，房屋将自动报警。 计算在不触动警报的情况下，小偷一晚能够盗取的最高金额。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一次搭载Hexo博客。。">
-<meta property="og:url" content="http://yoursite.com/2020/04/22/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E8%BD%BDHexo%E5%8D%9A%E5%AE%A2%E3%80%82%E3%80%82/index.html">
+<meta property="og:title" content="力扣刷题：打家劫舍III">
+<meta property="og:url" content="http://yoursite.com/2020/08/05/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DIII/index.html">
 <meta property="og:site_name" content="CodeSakura的博客">
-<meta property="og:description" content="个人博客搭载目的  起初，在刷题的时候想着自己做了这么多题，写着写着就忘了，得搞点什么东西来记录下。而手边又没什么工具，记得在当初在b站刷到羊哥的个人博客搭载视频的时候，卧槽这就是程序员的浪漫吗，于是就进了这个大坑。    还记得当初自己上高中的时候，就想自己拥有一个网站，然后打扮的漂漂亮亮的，播着自己喜欢的音乐，绝不能让别人知道我当初这个目的是想…打开视频，噢我明白了，然后实际操作，懵逼。">
+<meta property="og:description" content="力扣刷题：打家劫舍III题意在上次打劫完一条街道之后和一圈房屋后，小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为“根”。 除了“根”之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果两个直接相连的房子在同一天晚上被打劫，房屋将自动报警。 计算在不触动警报的情况下，小偷一晚能够盗取的最高金额。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/04/22/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E8%BD%BDHexo%E5%8D%9A%E5%AE%A2%E3%80%82%E3%80%82/gitee%E6%90%AD%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
-<meta property="og:image" content="http://yoursite.com/2020/04/22/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E8%BD%BDHexo%E5%8D%9A%E5%AE%A2%E3%80%82%E3%80%82/gitee2png.png">
-<meta property="article:published_time" content="2020-04-22T14:30:08.000Z">
-<meta property="article:modified_time" content="2020-08-03T02:55:16.187Z">
+<meta property="article:published_time" content="2020-08-05T15:03:05.000Z">
+<meta property="article:modified_time" content="2020-08-07T14:36:53.155Z">
 <meta property="article:author" content="CodeSakura">
-<meta property="article:tag" content="技术操作">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="个人博客搭载">
-<meta property="article:tag" content="gitee搭载">
+<meta property="article:tag" content="力扣刷题">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="dfs">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/04/22/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E8%BD%BDHexo%E5%8D%9A%E5%AE%A2%E3%80%82%E3%80%82/gitee%E6%90%AD%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/04/22/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E8%BD%BDHexo%E5%8D%9A%E5%AE%A2%E3%80%82%E3%80%82/">
+<link rel="canonical" href="http://yoursite.com/2020/08/05/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DIII/">
 
 
 <script id="page-configurations">
@@ -52,7 +48,7 @@
   };
 </script>
 
-  <title>第一次搭载Hexo博客。。 | CodeSakura的博客</title>
+  <title>力扣刷题：打家劫舍III | CodeSakura的博客</title>
   
 
 
@@ -186,7 +182,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/04/22/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E8%BD%BDHexo%E5%8D%9A%E5%AE%A2%E3%80%82%E3%80%82/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/05/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DIII/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/BlogID.png">
@@ -199,7 +195,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          第一次搭载Hexo博客。。
+          力扣刷题：打家劫舍III
         </h1>
 
         <div class="post-meta">
@@ -209,14 +205,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-04-22 22:30:08" itemprop="dateCreated datePublished" datetime="2020-04-22T22:30:08+08:00">2020-04-22</time>
+              <time title="创建时间：2020-08-05 23:03:05" itemprop="dateCreated datePublished" datetime="2020-08-05T23:03:05+08:00">2020-08-05</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-03 10:55:16" itemprop="dateModified" datetime="2020-08-03T10:55:16+08:00">2020-08-03</time>
+                <time title="修改时间：2020-08-07 22:36:53" itemprop="dateModified" datetime="2020-08-07T22:36:53+08:00">2020-08-07</time>
               </span>
 
           
@@ -235,8 +231,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/04/22/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E8%BD%BDHexo%E5%8D%9A%E5%AE%A2%E3%80%82%E3%80%82/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/04/22/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E8%BD%BDHexo%E5%8D%9A%E5%AE%A2%E3%80%82%E3%80%82/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/08/05/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DIII/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/05/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8DIII/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -246,7 +242,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.1k</span>
+              <span>1.6k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -265,32 +261,43 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="个人博客搭载目的"><a href="#个人博客搭载目的" class="headerlink" title="个人博客搭载目的"></a>个人博客搭载目的</h2><p>  起初，在刷题的时候想着自己做了这么多题，写着写着就忘了，得搞点什么东西来记录下。而手边又没什么工具，记得在当初在b站刷到羊哥的个人博客搭载视频的时候，卧槽这就是程序员的浪漫吗，于是就进了这个大坑。</p>
-<hr>
-<p>  还记得当初自己上高中的时候，就想自己拥有一个网站，然后打扮的漂漂亮亮的，播着自己喜欢的音乐，<del>绝不能让别人知道我当初这个目的是想…</del>打开视频，噢我明白了，然后实际操作，<strong>懵逼</strong>。</p>
+        <h3 id="力扣刷题：打家劫舍III"><a href="#力扣刷题：打家劫舍III" class="headerlink" title="力扣刷题：打家劫舍III"></a>力扣刷题：打家劫舍III</h3><h4 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h4><p>在上次打劫完一条街道之后和一圈房屋后，小偷又发现了一个新的可行窃的地区。这个地区只有一个入口，我们称之为“根”。 除了“根”之外，每栋房子有且只有一个“父“房子与之相连。一番侦察之后，聪明的小偷意识到“这个地方的所有房屋的排列类似于一棵二叉树”。 如果两个直接相连的房子在同一天晚上被打劫，房屋将自动报警。</p>
+<p>计算在不触动警报的情况下，小偷一晚能够盗取的最高金额。</p>
 <a id="more"></a>
 
-<h3 id="搭载环境和Hexo下载"><a href="#搭载环境和Hexo下载" class="headerlink" title="搭载环境和Hexo下载"></a>搭载环境和Hexo下载</h3><p>  我就不用文字描述了，直接上羊哥的保姆级视频，<strong>羊哥的是Mac，win可以打开弹幕来看别人的对比</strong>。</p>
-<blockquote>
-<p><a href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.videocard.0" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.videocard.0</a> </p>
-</blockquote>
-<h3 id="主要描述自己所遇到的坑吧"><a href="#主要描述自己所遇到的坑吧" class="headerlink" title="主要描述自己所遇到的坑吧"></a>主要描述自己所遇到的坑吧</h3><h4 id="new文件时的坑"><a href="#new文件时的坑" class="headerlink" title="new文件时的坑"></a>new文件时的坑</h4><p>  首先装完羊哥的那些环境后，可能在用代码执行期间可能会报各种错，<strong>Git也是要装上的，装上Git直接在blog文件中用git bush打开，其他步骤都和羊哥的一样，这里git安装狂神说讲得很清楚</strong>。</p>
-<blockquote>
-<p><a href="https://www.bilibili.com/video/BV1FE411P7B3" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1FE411P7B3</a></p>
-</blockquote>
-<p>  在hexo中new一个博客时，因为win没有vim打开的文档的方式，但在git bush中却能打开。打开文档后，这时我们照着羊哥的敲完选择退出时，我们要先按ESC再按大写状态的ZZ就能退出了。</p>
-<p> 这时萌新的我跟到这里还是懵逼的，哎，没办法谁叫自己菜。</p>
-<p>  <strong>这里推荐new完后，进行博客写还是用Typora写好些，主要是拿黑框框写博客感觉没那个意境。只要在hexo中建立md文件后选用Typora进行编写然后保存，最后再用hexo推送就ok</strong></p>
-<hr>
-<h4 id="选用gitee作为服务器搭载的坑"><a href="#选用gitee作为服务器搭载的坑" class="headerlink" title="选用gitee作为服务器搭载的坑"></a>选用gitee作为服务器搭载的坑</h4><p>  因为github实在太慢墙太高，我是用的国内的gitee，然后就踩了个大坑。</p>
-<p>  <strong>注意，项目的存放格式一定要和用户名一致，这很重要，如果名字有大写字母的统一用小写，血的教训</strong>。</p>
-<p>  用gitee的话，如果你上述步骤跟羊哥都走对了，但最后打开到公网还是404了，我只想说兄弟你也和我一样惨，但别放弃。我找了很多网站，最后发现</p>
-<p><img src="/2020/04/22/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E8%BD%BDHexo%E5%8D%9A%E5%AE%A2%E3%80%82%E3%80%82/gitee%E6%90%AD%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8.png" alt></p>
-<p>  <strong>点这个服务进入</strong></p>
-<p><img src="/2020/04/22/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%90%AD%E8%BD%BDHexo%E5%8D%9A%E5%AE%A2%E3%80%82%E3%80%82/gitee2png.png" alt></p>
-<p><strong>得显示出这个网站地址才能算成功，如果没显示可以点右边那个免费使用pro一下再点下面的更新，按道理不用pro也能点更新，不过我那时没看到直接点了pro试用了</strong></p>
-<p>出现了这个网站后你就发现，卧槽公网能访问了，没错，到了这里你就成功了！！！</p>
-<h1 id="最后最重要的，记得在config下的文件编写中：-后面记得有个空格，这很重要！！！关于调用有关在hexo下的：大部分都需要个空格，不然推送就会报错！！！"><a href="#最后最重要的，记得在config下的文件编写中：-后面记得有个空格，这很重要！！！关于调用有关在hexo下的：大部分都需要个空格，不然推送就会报错！！！" class="headerlink" title="最后最重要的，记得在config下的文件编写中： 后面记得有个空格，这很重要！！！关于调用有关在hexo下的：大部分都需要个空格，不然推送就会报错！！！"></a>最后最重要的，记得在config下的文件编写中： 后面记得有个空格，这很重要！！！关于调用有关在hexo下的：大部分都需要个空格，不然推送就会报错！！！</h1>
+<p><em>示例 1:</em></p>
+<p><em>输入: [3,2,3,null,3,null,1]</em></p>
+<p>​     3<br>​    / \</p>
+<p>   2   3<br>    \       \<br>     3       1</p>
+<p><em>输出: 7</em><br><em>解释: 小偷一晚能够盗取的最高金额 = 3 + 3 + 1 = 7.</em><br><em>示例 2:</em></p>
+<p><em>输入: [3,4,5,1,3,null,1]</em></p>
+<p>​     3<br>​    / \</p>
+<p>   4   5<br>  / \       \<br> 1   3       1</p>
+<p><em>输出: 9</em><br><em>解释: 小偷一晚能够盗取的最高金额 = 4 + 5 = 9.</em></p>
+<h4 id="思路分析："><a href="#思路分析：" class="headerlink" title="思路分析："></a>思路分析：</h4><p>简化这个问题：<em>一颗二叉树，树上的每个点有相应的权值，每个点有两种状态：选中和不选中，问在不能同时选中有父子关系的点的情况下，能选中的最大权值和是多少。</em></p>
+<p>我们可以用f(o)表示选择o节点的情况下，o节点的子树上被选择的节点的最大权值和；</p>
+<p>g(o)表示不选择o节点的情况下，o节点的子树上被选择的节点最大权值和；</p>
+<p>l和r表示o的左右孩子。</p>
+<ul>
+<li><p>当o被选中时，o的左右孩子都不能被选中，故o被选中情况下子树上被选中点的最大权值；</p>
+<p>和l和r不被选中的最大权值和相加，即f(o) = g(l) + g(r).</p>
+</li>
+<li><p>当o不被选中时，o的左右孩子可以被选中，也能不被选中。所以选中二者中的最大值，则有 g(o) = max{f(l) , g(r)} + max{f(r) , g(l)}。</p>
+</li>
+</ul>
+<p>至此，我们可以用哈希映射来存放f和g的函数值。</p>
+<p>用深度优先遍历来后序遍历这颗二叉树，我们就可以得到每个节点的f和g。根节点比较f和g的最大值就是求解。</p>
+<p><strong>代码：</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;TreeNode,Integer&gt; f = <span class="keyword">new</span> HashMap&lt;TreeNode,Integer&gt;();</span><br><span class="line">    Map&lt;TreeNode,Integer&gt; g = <span class="keyword">new</span> HashMap&lt;TreeNode,Integer&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">rob</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        dfs(root);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> Math.max(f.getOrDefault(root,<span class="number">0</span>),g.getOrDefault(root,<span class="number">0</span>));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">dfs</span><span class="params">(TreeNode node)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (node == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        dfs(node.left);</span><br><span class="line">        dfs(node.right);</span><br><span class="line">        f.put(node,node.val + g.getOrDefault(node.left,<span class="number">0</span>) + g.getOrDefault(node.right,<span class="number">0</span>));</span><br><span class="line">        g.put(node,Math.max(f.getOrDefault(node.left,<span class="number">0</span>),g.getOrDefault(node.left,<span class="number">0</span>))+</span><br><span class="line">                   Math.max(f.getOrDefault(node.right,<span class="number">0</span>),g.getOrDefault(node.right,<span class="number">0</span>)));</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>假设二叉树的节点个数为n。</p>
+<p>我们可以看出，以上算法对二叉树做了一次后序遍历，时间复杂度为O(n);</p>
+<p>由于递归会使用到栈空间，空间代价是O(n)，哈希映射的空间代价也是O(n)，故空间复杂度为O(n)。</p>
+<p>我们可以做一个小小优化，我们无论是f(o)还是g(o)，他们最终的值只与f(l),g(l),f(r),g(r)有关；</p>
+<p>所以对于每个节点，我们只要求孩子节点的f和g值,</p>
+<p>我们能设计一个数据结构，表示节点的f和g是多少，在每次递归返回时候，都把这个点对应的f和g返回给上一级调用，这样能省去哈希的映射空间。</p>
+<p><strong>优化哈希映射的代码：</strong></p>
+
     </div>
 
     
@@ -319,10 +326,9 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C/" rel="tag"># 技术操作</a>
-              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
-              <a href="/tags/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E8%BD%BD/" rel="tag"># 个人博客搭载</a>
-              <a href="/tags/gitee%E6%90%AD%E8%BD%BD/" rel="tag"># gitee搭载</a>
+              <a href="/tags/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/" rel="tag"># 力扣刷题</a>
+              <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag"># 动态规划</a>
+              <a href="/tags/dfs/" rel="tag"># dfs</a>
           </div>
 
         
@@ -330,10 +336,13 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/04/27/%E6%8A%80%E6%9C%AF%E6%93%8D%E4%BD%9C%EF%BC%9AMarkDown%E7%BC%96%E5%86%99%E6%A0%BC%E5%BC%8F%E7%AE%80%E8%BF%B0/" rel="next" title="MarkDown编写格式简述">
-      MarkDown编写格式简述 <i class="fa fa-chevron-right"></i>
+    <a href="/2020/08/02/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%89%8D%E5%BA%8F%E9%81%8D%E5%8E%86%E7%9A%84%E5%90%84%E7%A7%8D%E6%B1%82%E6%B3%95/" rel="prev" title="力扣刷题：前序遍历的各种求法">
+      <i class="fa fa-chevron-left"></i> 力扣刷题：前序遍历的各种求法
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/08/07/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9B%9E%E6%96%87%E5%AF%B9%EF%BC%88hard%EF%BC%89/" rel="next" title="力扣刷题：回文对（hard）">
+      力扣刷题：回文对（hard） <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -394,7 +403,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#个人博客搭载目的"><span class="nav-number">1.</span> <span class="nav-text">个人博客搭载目的</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#搭载环境和Hexo下载"><span class="nav-number">1.1.</span> <span class="nav-text">搭载环境和Hexo下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要描述自己所遇到的坑吧"><span class="nav-number">1.2.</span> <span class="nav-text">主要描述自己所遇到的坑吧</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#new文件时的坑"><span class="nav-number">1.2.1.</span> <span class="nav-text">new文件时的坑</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选用gitee作为服务器搭载的坑"><span class="nav-number">1.2.2.</span> <span class="nav-text">选用gitee作为服务器搭载的坑</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最后最重要的，记得在config下的文件编写中：-后面记得有个空格，这很重要！！！关于调用有关在hexo下的：大部分都需要个空格，不然推送就会报错！！！"><span class="nav-number"></span> <span class="nav-text">最后最重要的，记得在config下的文件编写中： 后面记得有个空格，这很重要！！！关于调用有关在hexo下的：大部分都需要个空格，不然推送就会报错！！！</span></a></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#力扣刷题：打家劫舍III"><span class="nav-number">1.</span> <span class="nav-text">力扣刷题：打家劫舍III</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#题意"><span class="nav-number">1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析："><span class="nav-number">1.2.</span> <span class="nav-text">思路分析：</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
