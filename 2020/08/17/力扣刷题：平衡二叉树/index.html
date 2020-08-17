@@ -20,24 +20,21 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Java后端开发学习路径编程基础​    Java语言​        语言基础​            基础语法​            面向对象​            接口​            容器​            异常​            泛型​            反射​            注释​            I&#x2F;O​            图形化（swi">
+  <meta name="description" content="力扣刷题：平衡二叉树思路分析：要求判断树是否为平衡二叉树必须满足以下几点：  它的左子树是平衡二叉树。  它的右子树是平衡二叉树。  它的左右子树高度差不能超过1。   通过 能知道三步法： 1.终止条件。 该情况下递归应如何终止？自然是当子树为空时返回，空树同时也是平衡二叉树。 2.应该返回什么信息： 每次递归都是解决此次大问题的一小步，且每一小步都相同。 而我们想得到该小步的返回什么信息？这里">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java后端开发成神之路">
-<meta property="og:url" content="http://yoursite.com/2020/07/07/%E5%BC%80%E5%8F%91%E8%B7%AF%E7%BA%BF%EF%BC%9AJava%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/index.html">
+<meta property="og:title" content="力扣刷题：平衡二叉树">
+<meta property="og:url" content="http://yoursite.com/2020/08/17/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/index.html">
 <meta property="og:site_name" content="CodeSakura的博客">
-<meta property="og:description" content="Java后端开发学习路径编程基础​    Java语言​        语言基础​            基础语法​            面向对象​            接口​            容器​            异常​            泛型​            反射​            注释​            I&#x2F;O​            图形化（swi">
+<meta property="og:description" content="力扣刷题：平衡二叉树思路分析：要求判断树是否为平衡二叉树必须满足以下几点：  它的左子树是平衡二叉树。  它的右子树是平衡二叉树。  它的左右子树高度差不能超过1。   通过 能知道三步法： 1.终止条件。 该情况下递归应如何终止？自然是当子树为空时返回，空树同时也是平衡二叉树。 2.应该返回什么信息： 每次递归都是解决此次大问题的一小步，且每一小步都相同。 而我们想得到该小步的返回什么信息？这里">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/2020/07/07/%E5%BC%80%E5%8F%91%E8%B7%AF%E7%BA%BF%EF%BC%9AJava%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/%E4%BA%8C%E4%BA%BA%E5%9B%BE.png">
-<meta property="article:published_time" content="2020-07-07T14:47:13.000Z">
-<meta property="article:modified_time" content="2020-07-07T15:04:50.813Z">
+<meta property="article:published_time" content="2020-08-17T14:58:27.000Z">
+<meta property="article:modified_time" content="2020-08-17T15:38:48.312Z">
 <meta property="article:author" content="CodeSakura">
-<meta property="article:tag" content="Java">
-<meta property="article:tag" content="后端开发">
-<meta property="article:tag" content="学习">
+<meta property="article:tag" content="力扣刷题">
+<meta property="article:tag" content="递归">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/2020/07/07/%E5%BC%80%E5%8F%91%E8%B7%AF%E7%BA%BF%EF%BC%9AJava%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/%E4%BA%8C%E4%BA%BA%E5%9B%BE.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/07/07/%E5%BC%80%E5%8F%91%E8%B7%AF%E7%BA%BF%EF%BC%9AJava%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/">
+<link rel="canonical" href="http://yoursite.com/2020/08/17/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">
 
 
 <script id="page-configurations">
@@ -50,7 +47,7 @@
   };
 </script>
 
-  <title>Java后端开发成神之路 | CodeSakura的博客</title>
+  <title>力扣刷题：平衡二叉树 | CodeSakura的博客</title>
   
 
 
@@ -184,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/07/%E5%BC%80%E5%8F%91%E8%B7%AF%E7%BA%BF%EF%BC%9AJava%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/17/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/BlogID.png">
@@ -197,7 +194,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Java后端开发成神之路
+          力扣刷题：平衡二叉树
         </h1>
 
         <div class="post-meta">
@@ -208,7 +205,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2020-07-07 22:47:13 / 修改时间：23:04:50" itemprop="dateCreated datePublished" datetime="2020-07-07T22:47:13+08:00">2020-07-07</time>
+              <time title="创建时间：2020-08-17 22:58:27 / 修改时间：23:38:48" itemprop="dateCreated datePublished" datetime="2020-08-17T22:58:27+08:00">2020-08-17</time>
             </span>
 
           
@@ -227,8 +224,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/07/07/%E5%BC%80%E5%8F%91%E8%B7%AF%E7%BA%BF%EF%BC%9AJava%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/07/%E5%BC%80%E5%8F%91%E8%B7%AF%E7%BA%BF%EF%BC%9AJava%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/08/17/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/17/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -238,14 +235,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>1.5k</span>
+              <span>1.7k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
 
         </div>
@@ -257,14 +254,35 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Java后端开发学习路径"><a href="#Java后端开发学习路径" class="headerlink" title="Java后端开发学习路径"></a>Java后端开发学习路径</h3><h4 id="编程基础"><a href="#编程基础" class="headerlink" title="编程基础"></a>编程基础</h4><p>​    Java语言<br>​        语言基础<br>​            基础语法<br>​            面向对象<br>​            接口<br>​            容器<br>​            异常<br>​            泛型<br>​            反射<br>​            注释<br>​            I/O<br>​            图形化（swing）</p>
-<a id="more"></a>
+        <h3 id="力扣刷题：平衡二叉树"><a href="#力扣刷题：平衡二叉树" class="headerlink" title="力扣刷题：平衡二叉树"></a>力扣刷题：平衡二叉树</h3><h4 id="思路分析："><a href="#思路分析：" class="headerlink" title="思路分析："></a>思路分析：</h4><p>要求判断树是否为平衡二叉树必须满足以下几点：</p>
+<ol>
+<li><p><strong>它的左子树是平衡二叉树。</strong></p>
+</li>
+<li><p><strong>它的右子树是平衡二叉树。</strong></p>
+</li>
+<li><p><strong>它的左右子树高度差不能超过1。</strong></p>
+</li>
+</ol>
+<p>通过</p>
+<p>能知道三步法：</p>
+<p><strong>1.终止条件。</strong></p>
+<p>该情况下递归应如何终止？自然是当子树为空时返回，空树同时也是平衡二叉树。</p>
+<p><strong>2.应该返回什么信息：</strong></p>
+<p>每次递归都是解决此次大问题的一小步，且每一小步都相同。</p>
+<p>而我们想得到该小步的返回什么信息？这里就可以得知上面的三点要求：</p>
+<p><strong>左右子树同时为平衡二叉树，且左右子树的高度差不超过1。</strong></p>
+<p>而我们递归只要关注一小步中的当前三个关键点：root，left，right。</p>
+<p>那么返回什么？如果返回Boolean值，那么我们能知道left，right是否为平衡二叉树。但无法得到left，right的高度差，无法判断是否 &lt;= 1。同时返回高度差一样不能得到前者是否为平衡二叉树。</p>
+<p>所以不妨设置个类，定义depth和是否为平衡二叉树的Boolean值。然后返回此类，最终返回此类中的Boolean值，得到答案。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReturnNode</span></span>&#123;</span><br><span class="line">  <span class="keyword">boolean</span> isB;</span><br><span class="line">  <span class="keyword">int</span> depth;</span><br><span class="line">  <span class="comment">//构造方法</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ReturnNode</span><span class="params">(<span class="keyword">boolean</span> isB, <span class="keyword">int</span> depth)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.isB = isB;</span><br><span class="line">    <span class="keyword">this</span>.depth = depth;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>​        JVM虚拟机s<br>​            类加载机制<br>​            字节码执行机制<br>​            JVM内存模型<br>​            GC垃圾回收<br>​            JVM性能监控与故障定位<br>​            JVM调优<br>​        多线程/并发<br>​            并发编程的基础<br>​            线程池<br>​            并发容器<br>​            原子类<br>​            JUC并发工具类<br>​    数据结构和算法<br>​        数据结构<br>​            字符串<br>​            数组<br>​            链表<br>​            堆、栈、队列<br>​            二叉树<br>​            哈希<br>​            图<br>​        算法<br>​            排序<br>​            查找<br>​            贪心<br>​            分治<br>​            动态规划<br>​            回溯<br>​    计算机网络<br>​        APR协议<br>​        IP协议、ICMP协议<br>​        DNS/HTTP/HTTPS协议<br>​        Session/Cookie<br>​    SQL/数据库<br>​        SQL语句书写<br>​        SQL语句优化<br>​        事务、隔离级别<br>​        索引<br>​        锁<br>​    操作系统<br>​        进程、线程<br>​        并发、锁<br>​        内存管理和调度<br>​        I/O原理<br>​    设计模式<br>​        举例<br>​        工厂<br>​        代理<br>​        策略<br>​        模板方法<br>​        观察者<br>​        适配器<br>​        责任链<br>​        建造者</p>
-<h4 id="研发工具"><a href="#研发工具" class="headerlink" title="研发工具"></a>研发工具</h4><p>​    集成开发工具<br>​        Eclipse<br>​        Interllj IDEA<br>​        VScode<br>​    Linux<br>​        常用命令<br>​        Shell脚本<br>​    项目管理/构建工具<br>​        Maven<br>​        Gradle<br>​    代码管理工具<br>​        SVN<br>​        Git</p>
-<h4 id="应用框架"><a href="#应用框架" class="headerlink" title="应用框架"></a>应用框架</h4><p>​    后端<br>​        Spring家族框架<br>​            Spring<br>​                IoC<br>​                Aop<br>​            SpringMVC<br>​            Spring Boot<br>​                自动配置、开箱即用<br>​                 整合Web<br>​                整合数据库（事务问题）<br>​                整合权限<br>​                    Shiro<br>​                    Spring Secunity<br>​                整合各种中间件<br>​                    Redis、MQ、RPC框架、NIO框架<br>​        服务器软件<br>​            Web服务器<br>​                Nginx<br>​            应用服务器<br>​                Tomcat<br>​                Jetty<br>​                Undertow<br>​        中间件<br>​            缓存<br>​                Redis<br>​                    5大基础数据类型<br>​                    事务<br>​                    管道<br>​                    持久化<br>​                    集群<br>​            消息队列<br>​                RocketMQ<br>​                RabbitMQ<br>​                Kafka<br>​            RPC框架<br>​                Dobbo<br>​                gRPC<br>​                Thrift<br>​                Spring Cloud<br>​                Netty<br>​        数据库框架<br>​            ORM层框架<br>​                Mybatis<br>​                Hbemate<br>​                JPA<br>​            连接池<br>​                Druid<br>​                HkariCP<br>​                C3P0<br>​            分库分表<br>​                MyCat<br>​                Sharding-JDBC<br>​                Sharding-Sphere<br>​        搜索引擎<br>​            ElasticSearch<br>​            Solr<br>​        分布式/微服务<br>​            服务发现/注册<br>​                Eureka<br>​                Consul<br>​                Zookeeper<br>​                Nacos<br>​            网关<br>​                Zuul<br>​                Gateway<br>​            服务调用（负载均衡）<br>​                Ribbon<br>​                Feign<br>​            熔断/降级<br>​                Hystrix<br>​            配置中心<br>​                Config<br>​                Apallo<br>​                Nacos（阿里）<br>​            认证和鉴权<br>​                Spring Security<br>​                OAuth2<br>​                SSO单点登录<br>​            分布式事务<br>​                JTA接口<br>​                    Atomikos组件<br>​                2PC、3PC<br>​                XA模式<br>​                TCC模式<br>​                    tcc-transaction<br>​                    ByteTCC<br>​                    EassyTransaction<br>​                    Seata<br>​                SAGA模式<br>​                    ServiceComb<br>​                    Seata<br>​                LCN模式<br>​                    tx-lcn<br>​            任务调度<br>​                Quartz<br>​                Elastic-Job<br>​            链路追踪和监控<br>​                Zipkin<br>​                Sleuth<br>​                Skywalking<br>​            日志分析与监控<br>​                ELK<br>​                    ElasticSearch<br>​                    Logstash<br>​                    Klbana<br>​        虚拟化/容器化<br>​            容器技术<br>​                Docker<br>​            容器编排技术<br>​                Kubernetes<br>​                Swam<br>​    前端<br>​        基础套餐<br>​            三大件<br>​                HTML<br>​                JavaScript<br>​                CSS<br>​            基础库<br>​                JQuery<br>​                Ajax<br>​        模板框架<br>​            JSP/JSTL<br>​            Thymeleaf<br>​            FreeMarker<br>​        组件化<br>​            Vue<br>​            Node<br>​            React<br>​            Angular</p>
-<p>研发工具<br>    集成开发工具<br>        Eclipse<br>        Interllj IDEA<br>        VScode<br>    Linux<br>        常用命令<br>        Shell脚本<br>    项目管理/构建工具<br>        Maven<br>        Gradle<br>    代码管理工具<br>        SVN<br>        Git</p>
-<p><img src="/2020/07/07/%E5%BC%80%E5%8F%91%E8%B7%AF%E7%BA%BF%EF%BC%9AJava%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91%E6%88%90%E7%A5%9E%E4%B9%8B%E8%B7%AF/%E4%BA%8C%E4%BA%BA%E5%9B%BE.png" alt></p>
+<p><strong>3.本级递归应该做什么。</strong></p>
+<p>知道定义新类中有boolean值和depth值。每层的递归需要解决：</p>
+<p>1.首先判断left子树和right子树是否为平衡二叉树，不是返回false。</p>
+<p>2.再判断返回的ReturnNode类中的depth，左右子树的depth的绝对值不超过1，超过则返回false。</p>
+<p>在以上2点均不触发的情况下，返回ReturnNode类，并将左右子树的最大depth值+1。</p>
+<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">//这个ReturnNode是参考我描述的递归套路的第二步：思考返回值是什么</span></span><br><span class="line">    <span class="comment">//一棵树是BST等价于它的左、右俩子树都是BST且俩子树高度差不超过1</span></span><br><span class="line">    <span class="comment">//因此我认为返回值应该包含当前树是否是BST和当前树的高度这两个信息</span></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ReturnNode</span></span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> isB;</span><br><span class="line">        <span class="keyword">int</span> depth;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ReturnNode</span><span class="params">(<span class="keyword">int</span> depth, <span class="keyword">boolean</span> isB)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.isB = isB;</span><br><span class="line">            <span class="keyword">this</span>.depth = depth;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//主函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isBST(root).isB;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//参考递归套路的第三部：描述单次执行过程是什么样的</span></span><br><span class="line">    <span class="comment">//这里的单次执行过程具体如下：</span></span><br><span class="line">    <span class="comment">//是否终止?-&gt;没终止的话，判断是否满足不平衡的三个条件-&gt;返回值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ReturnNode <span class="title">isBST</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ReturnNode(<span class="number">0</span>, <span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//不平衡的情况有3种：左树不平衡、右树不平衡、左树和右树差的绝对值大于1</span></span><br><span class="line">        ReturnNode left = isBST(root.left);</span><br><span class="line">        ReturnNode right = isBST(root.right);</span><br><span class="line">        <span class="keyword">if</span>(left.isB == <span class="keyword">false</span> || right.isB == <span class="keyword">false</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ReturnNode(<span class="number">0</span>, <span class="keyword">false</span>); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(Math.abs(left.depth - right.depth) &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ReturnNode(<span class="number">0</span>, <span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//不满足上面3种情况，说明平衡了，树的深度为左右俩子树最大深度+1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ReturnNode(Math.max(left.depth, right.depth) + <span class="number">1</span>, <span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -294,9 +312,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Java/" rel="tag"># Java</a>
-              <a href="/tags/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 后端开发</a>
-              <a href="/tags/%E5%AD%A6%E4%B9%A0/" rel="tag"># 学习</a>
+              <a href="/tags/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/" rel="tag"># 力扣刷题</a>
+              <a href="/tags/%E9%80%92%E5%BD%92/" rel="tag"># 递归</a>
           </div>
 
         
@@ -305,13 +322,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/06/13/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0%EF%BC%9A%E6%A5%BC%E5%B1%82%E7%BD%AE%E7%90%83/" rel="prev" title="读书笔记：楼层置球">
-      <i class="fa fa-chevron-left"></i> 读书笔记：楼层置球
+    <a href="/2020/08/07/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9B%9E%E6%96%87%E5%AF%B9%EF%BC%88hard%EF%BC%89/" rel="prev" title="力扣刷题：回文对（hard）">
+      <i class="fa fa-chevron-left"></i> 力扣刷题：回文对（hard）
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2020/07/09/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E6%95%B0%E7%9B%B8%E5%8A%A0%E9%A2%98/" rel="next" title="力扣刷题：两数相加题">
-      力扣刷题：两数相加题 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -371,7 +385,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Java后端开发学习路径"><span class="nav-number">1.</span> <span class="nav-text">Java后端开发学习路径</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#编程基础"><span class="nav-number">1.1.</span> <span class="nav-text">编程基础</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#研发工具"><span class="nav-number">1.2.</span> <span class="nav-text">研发工具</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#应用框架"><span class="nav-number">1.3.</span> <span class="nav-text">应用框架</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#力扣刷题：平衡二叉树"><span class="nav-number">1.</span> <span class="nav-text">力扣刷题：平衡二叉树</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#思路分析："><span class="nav-number">1.1.</span> <span class="nav-text">思路分析：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码："><span class="nav-number">1.2.</span> <span class="nav-text">代码：</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

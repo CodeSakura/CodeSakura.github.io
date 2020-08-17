@@ -177,6 +177,121 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/17/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/BlogID.png">
+      <meta itemprop="name" content="CodeSakura">
+      <meta itemprop="description" content="一名在校计科大学生">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CodeSakura的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/17/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" class="post-title-link" itemprop="url">力扣刷题：平衡二叉树</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-08-17 22:58:27 / 修改时间：23:38:48" itemprop="dateCreated datePublished" datetime="2020-08-17T22:58:27+08:00">2020-08-17</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/08/17/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/17/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>1.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>2 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="力扣刷题：平衡二叉树"><a href="#力扣刷题：平衡二叉树" class="headerlink" title="力扣刷题：平衡二叉树"></a>力扣刷题：平衡二叉树</h3><h4 id="思路分析："><a href="#思路分析：" class="headerlink" title="思路分析："></a>思路分析：</h4><p>要求判断树是否为平衡二叉树必须满足以下几点：</p>
+<ol>
+<li><p><strong>它的左子树是平衡二叉树。</strong></p>
+</li>
+<li><p><strong>它的右子树是平衡二叉树。</strong></p>
+</li>
+<li><p><strong>它的左右子树高度差不能超过1。</strong></p>
+</li>
+</ol>
+<p>通过</p>
+<p>能知道三步法：</p>
+<p><strong>1.终止条件。</strong></p>
+<p>该情况下递归应如何终止？自然是当子树为空时返回，空树同时也是平衡二叉树。</p>
+<p><strong>2.应该返回什么信息：</strong></p>
+<p>每次递归都是解决此次大问题的一小步，且每一小步都相同。</p>
+<p>而我们想得到该小步的返回什么信息？这里就可以得知上面的三点要求：</p>
+<p><strong>左右子树同时为平衡二叉树，且左右子树的高度差不超过1。</strong></p>
+<p>而我们递归只要关注一小步中的当前三个关键点：root，left，right。</p>
+<p>那么返回什么？如果返回Boolean值，那么我们能知道left，right是否为平衡二叉树。但无法得到left，right的高度差，无法判断是否 &lt;= 1。同时返回高度差一样不能得到前者是否为平衡二叉树。</p>
+<p>所以不妨设置个类，定义depth和是否为平衡二叉树的Boolean值。然后返回此类，最终返回此类中的Boolean值，得到答案。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ReturnNode</span></span>&#123;</span><br><span class="line">  <span class="keyword">boolean</span> isB;</span><br><span class="line">  <span class="keyword">int</span> depth;</span><br><span class="line">  <span class="comment">//构造方法</span></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="title">ReturnNode</span><span class="params">(<span class="keyword">boolean</span> isB, <span class="keyword">int</span> depth)</span></span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.isB = isB;</span><br><span class="line">    <span class="keyword">this</span>.depth = depth;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>3.本级递归应该做什么。</strong></p>
+<p>知道定义新类中有boolean值和depth值。每层的递归需要解决：</p>
+<p>1.首先判断left子树和right子树是否为平衡二叉树，不是返回false。</p>
+<p>2.再判断返回的ReturnNode类中的depth，左右子树的depth的绝对值不超过1，超过则返回false。</p>
+<p>在以上2点均不触发的情况下，返回ReturnNode类，并将左右子树的最大depth值+1。</p>
+<h4 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="comment">//这个ReturnNode是参考我描述的递归套路的第二步：思考返回值是什么</span></span><br><span class="line">    <span class="comment">//一棵树是BST等价于它的左、右俩子树都是BST且俩子树高度差不超过1</span></span><br><span class="line">    <span class="comment">//因此我认为返回值应该包含当前树是否是BST和当前树的高度这两个信息</span></span><br><span class="line">    <span class="keyword">private</span> <span class="class"><span class="keyword">class</span> <span class="title">ReturnNode</span></span>&#123;</span><br><span class="line">        <span class="keyword">boolean</span> isB;</span><br><span class="line">        <span class="keyword">int</span> depth;</span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">ReturnNode</span><span class="params">(<span class="keyword">int</span> depth, <span class="keyword">boolean</span> isB)</span></span>&#123;</span><br><span class="line">            <span class="keyword">this</span>.isB = isB;</span><br><span class="line">            <span class="keyword">this</span>.depth = depth;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//主函数</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBalanced</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> isBST(root).isB;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//参考递归套路的第三部：描述单次执行过程是什么样的</span></span><br><span class="line">    <span class="comment">//这里的单次执行过程具体如下：</span></span><br><span class="line">    <span class="comment">//是否终止?-&gt;没终止的话，判断是否满足不平衡的三个条件-&gt;返回值</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ReturnNode <span class="title">isBST</span><span class="params">(TreeNode root)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ReturnNode(<span class="number">0</span>, <span class="keyword">true</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//不平衡的情况有3种：左树不平衡、右树不平衡、左树和右树差的绝对值大于1</span></span><br><span class="line">        ReturnNode left = isBST(root.left);</span><br><span class="line">        ReturnNode right = isBST(root.right);</span><br><span class="line">        <span class="keyword">if</span>(left.isB == <span class="keyword">false</span> || right.isB == <span class="keyword">false</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ReturnNode(<span class="number">0</span>, <span class="keyword">false</span>); </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(Math.abs(left.depth - right.depth) &gt; <span class="number">1</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ReturnNode(<span class="number">0</span>, <span class="keyword">false</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//不满足上面3种情况，说明平衡了，树的深度为左右俩子树最大深度+1</span></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> ReturnNode(Math.max(left.depth, right.depth) + <span class="number">1</span>, <span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/07/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E5%9B%9E%E6%96%87%E5%AF%B9%EF%BC%88hard%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -406,7 +521,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-03 17:29:19" itemprop="dateModified" datetime="2020-08-03T17:29:19+08:00">2020-08-03</time>
+                <time title="修改时间：2020-08-10 00:30:39" itemprop="dateModified" datetime="2020-08-10T00:30:39+08:00">2020-08-10</time>
               </span>
 
           
@@ -429,7 +544,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>43</span>
+              <span>14</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -448,8 +563,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h3 id="力扣刷题：前序遍历的各种求法"><a href="#力扣刷题：前序遍历的各种求法" class="headerlink" title="力扣刷题：前序遍历的各种求法"></a>力扣刷题：前序遍历的各种求法</h3><h4 id="题意："><a href="#题意：" class="headerlink" title="题意："></a>题意：</h4><p>给定一个二叉树，<a href="https://baike.baidu.com/item/原地算法/8010757" target="_blank" rel="noopener">原地</a>将它展开为一个单链表。</p>
-<h4 id="思路分析："><a href="#思路分析：" class="headerlink" title="思路分析："></a>思路分析：</h4>
+          <h3 id="力扣刷题：前序遍历的各种求法"><a href="#力扣刷题：前序遍历的各种求法" class="headerlink" title="力扣刷题：前序遍历的各种求法"></a>力扣刷题：前序遍历的各种求法</h3>
       
     </div>
 
@@ -1052,119 +1166,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/BlogID.png">
-      <meta itemprop="name" content="CodeSakura">
-      <meta itemprop="description" content="一名在校计科大学生">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="CodeSakura的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/" class="post-title-link" itemprop="url">力扣刷题：两个数组交集</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-07-15 20:54:27" itemprop="dateCreated datePublished" datetime="2020-07-15T20:54:27+08:00">2020-07-15</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-08-03 10:45:44" itemprop="dateModified" datetime="2020-08-03T10:45:44+08:00">2020-08-03</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  <br>
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-                <span class="post-meta-item-text">本文字数：</span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-                <span class="post-meta-item-text">阅读时长 &asymp;</span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="力扣刷题：两个数组交集"><a href="#力扣刷题：两个数组交集" class="headerlink" title="力扣刷题：两个数组交集"></a>力扣刷题：两个数组交集</h3><p><strong>题意：</strong></p>
-<p>给定两个数组，编写个函数求它们的交集。</p>
-<p>示例 1：</p>
-<p><code>输入：nums1 = [1,2,2,1], nums2 = [2,2]</code><br><code>输出：[2,2]</code><br>示例 2:</p>
-<p><code>输入：nums1 = [4,9,5], nums2 = [9,4,9,8,4]</code><br><code>输出：[4,9]</code></p>
-<p>进阶：</p>
-<ul>
-<li><p>如果给定数组已有序，如何优化算法？</p>
-</li>
-<li><p>如果nums1的大小比nums2小很多，那种方法优？</p>
-</li>
-<li><p><strong>如果nums2的元素存在磁盘上，磁盘内存有限，不能一次加载所有元素到内存，如何解</strong>？</p>
-</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/07/15/%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98%EF%BC%9A%E4%B8%A4%E4%B8%AA%E6%95%B0%E7%BB%84%E4%BA%A4%E9%9B%86/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1236,7 +1237,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">24</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1282,12 +1283,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">36k</span>
+    <span title="站点总字数">38k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">33 分钟</span>
+    <span title="站点阅读时长">35 分钟</span>
 </div>
 
         
