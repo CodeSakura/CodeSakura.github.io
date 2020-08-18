@@ -274,6 +274,8 @@
 <li><p><strong>它的右子树是平衡二叉树。</strong></p>
 </li>
 <li><p><strong>它的左右子树高度差不能超过1。</strong></p>
+<a id="more"></a>
+
 </li>
 </ol>
 <p>通过</p>
